@@ -3,11 +3,15 @@
 //如果整个board大小在运行中改变（skew），default参数要随之改变么？
 var paper;
 
+
 $(document).ready(function(){
     var mouseToSvg;
     var svgWrapper = document.getElementById('svgWrapper');
+
     paper = Raphael('svgWrapper',800,600);
-    Tianzi(paper);
+    tianzi = new Tianzi(paper);
+
+
 })
 
 
@@ -19,11 +23,15 @@ Tianzi = function(paper) {
 
 //    调试方便的外露部分，暂时的     以后要封装进Tianzi的闭合作用域
     window.squareBox = [];
-    window.TianZi = this;
+    window.textBox = [];
+    window.Tianzi = this;
+    window.testWordBox = '我是一个测试DUMBman'.split('');
+    window.inputBox = $('#inputBox');
     var R = paper;
 //    this.debug = function(){
 //        R = paper;
 //    }
+
     /**
      *  放字框的游戏板子
      * @param {Object} 传递的 Raphael 实体
@@ -83,50 +91,93 @@ Tianzi = function(paper) {
         id : 0,
         status : {
             cx : 0,
-            cy : 0
+            cy : 0,
+            invoked : false
         },
         rElmt : null,
         relatatedText : null,
         rDefaults : {    //主要是为了给raphael用  以后外观和内在要分开
             fill : "#a4d",
+            stroke : '#eee',
             width : 50,
             height :50,
             x : 50,
             y : 50
         },
         create : function(options){
-            this.el = this; //需要么？
+            el = this; //需要么？
 
             applyDefaultPara.call(this.rDefaults,Tianzi.Square,this,options);
-            this.rElmt = paper.rect().attr(this.el.rDefaults);  //按照外观的默认值构建   先用raphael的rect 以后可能会改成一个单独绘图函数
+            this.rElmt = paper.rect().attr(el.rDefaults);  //按照外观的默认值构建   先用raphael的rect 以后可能会改成一个单独绘图函数
             this.rElmt.TZBindObj = this;
+            this.id = _.last(squareBox) ? _.last(squareBox).id + 1 : 1 ;
             squareBox.push(this);
-            this.id = _.last(squareBox).id + 1;
 
-            this.rElmt.click(function(){
-                this.TZBindObj.click();  //这里的this指向的是Raphael??
+            this.rElmt.click(function(event){
+                this.TZBindObj.click(event);  //这里的this指向的是Raphael??
             });   //如果不用call的话，el.click的上下文会比较混乱？？
+            eve.on('square.click',function(word){
+//                console.log(word);
+            })
+            this.rElmt.mouseover(function(event){
+//                console.log(this);
 
-            this.rElmt.mouseover(function(){
+                //TODO 这种麻烦的绑定方式……   有余力的话看一下Raphael和jquery的事件实现模型  还有啊外观变化到底是绑给raphael的事件呢还是Tianzi的事件呢？
+                eve('square.click',this,'ddddddddddddd'); //eve 是可以传递上下文和参数的  不过这个上下文要怎么用？
+
                 this.TZBindObj.mousein();
             });   //如果不用call的话，el.click的上下文会比较混乱？？
 
         },
         changeAppearence : function(options){
 //            _.map(options,function(){  暂时不用每条都检查
-            console.log(options);
+//            console.log(options);
                 this.rElmt.attr(options);
 //            })
         },
-        freeze : function(){},
-        click : function(){
-            console.log('sqr clicked');
-//            console.log(this.rElmt.getBBox());
+        addText : function(txt){
 
+            if(this.relatedText == null){
+                var bBox = this.rElmt.getBBox();  //为什么用了el只会显示最后一个建立的box的数值？   用this才可以正确  也许因为我写的el = this 不对
+//                没有文字就新建
+                var tempTB = new Tianzi.Text({bBox : bBox});
+                this.relatedText = tempTB;
+                tempTB.relatedSquare = this;
+
+                tempTB.textId =  _.last(textBox) ? _.last(textBox).textId + 1 : 1;   //有没有不需要underscore的快速解决方法？
+//            console.log(el.rElmt.id);
+
+
+                tempTB.rElmt.attr(tempTB.textStyle); //TODO 以后要不要扩展下，改成tempTB.textStyle.default
+                textBox.push(tempTB);
+            }
+        },
+        refreshText : function(newTxt){
+            if(! this.relatedText){
+                this.addText(newTxt);
+            }
+            else{
+                this.relatedText.rElmt.attr({text : newTxt});
+            }
+
+            //TODO 这里不懂用jquery和zepto解决，它们好像只能提出值，不能设定值？
+            document.getElementById('inputBox').value = this.relatedText.rElmt.attr('text');
+            console.log('word refreshed');
+        },
+        /**
+         * 空的框被单击后    添加文字
+         *
+         */
+        click : function(event){
+//            console.log('sqr clicked');
+            this.status.invoked = true;
+            tianzi.invokedObj.square = this;
+//            console.log(tianzi);
+            inputBox.show().css({top: event.pageY - 20 ,left:event.pageX - 20});
         },
         mousein : function(){
 //            console.log('mouse in');
-            console.log(this.rElmt);
+//            console.log(this.rElmt);
 
         },
         mouseout : function(){}
@@ -140,27 +191,112 @@ Tianzi = function(paper) {
      *  @param {Object}
      *
      */
-    TianZi.Text = function(options){
+    Tianzi.Text = function(options){
         this.create(options);
+        
         return this;
     }
-    TianZi.Text.prototype = {
+    Tianzi.Text.prototype = {
         textId : 0 ,
         rElmt : null,
+        textStyle : {
+            'font-size' : 24,
+            'font-family' : '微软雅黑',
+    //                'href' : '', href 和 target 什么区别 ？   target在svg标签里的show属性是什么意思？
+    //                'target' : '#inputWrapper',
+            fill : '#1c5'
+        },
         relatedSquare : null,
-        create : function(options){}
+        create : function(options){
+//            this.rElmt = paper.text();
+            bBox = options.bBox || { x:0, y:0};
+            this.rElmt = paper.text( (bBox.x + bBox.x2) / 2 ,(bBox.y + bBox.y2) / 2  ,txt);  // text-anchor默认middle时是设定文字中心点坐标
+            this.rElmt.TZBindObj = this;
+            this.rElmt.click(function(){
+                this.TZBindObj.click();
+            });
+
+        },
+        click : function(){
+            // 不太确定  翻来覆去麻烦
+            this.relatedSquare.click();
+        }
     }
 
+//    属于Tianzi的部分  -------------------------------------------------------------
+
+    /**
+     *
+     * Tianzi的初始化
+     *  @desc  对inputBox的事件绑定   keypress>change>blur
+     *  @param {Object}
+     *
+     */
     init = function(){
 //                console.log(this);
         var firstBoard = new Tianzi.Board();
         var sqr = new Tianzi.Square();
 
+        //TODO inputBox作为dom元素的事件绑定  应该放到Tianzi里面一个合适的位置
+        inputBox.on('click',function(event){
+//        console.log(this);
+//        console.log(event);
+        })
+        inputBox.on('keypress',function(event){
+            //检测回车
+            if(event.keyCode == 13){
+//                inputBox.trigger('change');
+                tianzi.refreshTxt();
+                inputBox.hide();
+            };
+            //TODO  需要加入实时的ajax提醒么？
+        })
+        .on('blur',function(){
+                //refreshTxt 不能放在这里？ 因为按下回车后blur事件还是会触发  除非能想到办法在blur发生的时候判断之前有没有别的事件发生
+                inputBox.hide();
+        })
+        .on('change',function(event){
+//        console.log('change');
+//                tianzi.refreshTxt();
+        })
+        .on('mousemove',function(event){
+//        console.log('drag');
+            //TODO 拖动要怎么检测？
+            if(event.button == 1){
+                console.log('drag');
+            }
+        }) ;
+
+        return this;
+
     };
+    debug = function(){
+
+    }
 
 
     init();
 
+}
+Tianzi.prototype = {
+    invokedObj : {
+        square : null
+    },
+    refreshTxt : function(){
+        inputBox.hide();
+        var ivObj = tianzi.invokedObj.square;
+//        console.log(ivObj);
+        var val = inputBox.val().split('');
+        if(val.length > 1){
+            //TODO 提示不能输入多个字  tooltip  然后 ( 禁止文字改变 / 或者只取第一个字) 不过还是要提示
+            console.log('only one word');
+        }
+        ivObj.refreshText(inputBox.val()[0]);
+        ivObj.status.invoked = false;
+        tianzi.invokedObj.square = null;
+
+
+    }
 }
 
 function applyDefaultPara(theClassDefault,theObj,options){
