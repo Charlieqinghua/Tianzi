@@ -1,0 +1,11 @@
+扩展加入了Raphael.el.animateQueue
+
+新加入raphael的ANIMATEQUEUEMS_DEFAULT 但是要放在哪里呢？
+
+基地实习  22度  160       43度 198
+
+eve('square.click',this,'ddddddddddddd'); //eve 是可以传递上下文和参数的  不过这个上下文要怎么用？
+
+morf.js里的   addKeyframeRule = function(rule) {
+            		if (document.styleSheets && document.styleSheets.length)
+            			document.styleSheets[0].insertRule(rule, 0);       如何使用？
