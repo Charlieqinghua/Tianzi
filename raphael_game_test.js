@@ -75,7 +75,6 @@ Tianzi = function(paper) {
                         x : point.offsetX - point.offsetX % tempSqr.rDefaults.width,
                         y : point.offsetY - point.offsetY % tempSqr.rDefaults.height}
                 );  // tempSqr.rDefaults这个写法麻烦， 考虑以后要不要把及时的参数放到Square.status 里面……
-                squareBox.push(tempSqr);
             }
 
 
@@ -89,20 +88,21 @@ Tianzi = function(paper) {
     Tianzi.Square = function (arguments){
 
         var square = this.create(arguments);
-
+//        console.log(this.status);
+//        console.log(squareBox[0].status);
         return square;
     };
     Tianzi.Square.prototype = {
         el : null,  //创建（create）的时候制定的自身引用
         squareId : 0,
         status : {
-            gridX : 0,
-            gridY : 0,
+            gridX : null,
+            gridY : null,
             invoked : false
         },
         rElmt : null,
-        relatatedText : null,
-        tzDefault : {  // 对应tianzi游戏的默认
+        relatatedText : null,  //对应的Tianzi.Text
+        tzDefaults : {  // 对应tianzi游戏的默认
             gridX : 0,
             gridY : 0
         },
@@ -115,12 +115,20 @@ Tianzi = function(paper) {
         },
         create : function(options){
             el = this; //需要么？
+            this.status = {}; //注意要初始化！！！！要不然后面改单项有屁用！
 //            adjustByScale();  //TODO  是基于proto的继承呢？ 还是每个类单独写一个
-
             applyDefaultPara.call(this.rDefaults,Tianzi.Square,this,options);
-            this.rElmt = paper.rect().attr(el.rDefaults);  //按照外观的默认值构建   先用raphael的rect 以后可能会改成一个单独绘图函数
-            var gX = options.gridX ? options.gridX : this.tz.gridX,  gY = options.gridY ? options.gridY : this.tzDefaults.gridY;
-            this.rElmt.attr({x:gx * Tianzi.scale, y:gY * Tianzi.scale }); //todo 和Tianzi.scale 相关的应该还有别的东西 最好整理下
+            this.rElmt = paper.rect().attr(this.rDefaults);  //按照外观的默认值构建   先用raphael的rect 以后可能会改成一个单独绘图函数
+            var gX = options.gridX ? options.gridX : this.tzDefaults.gridX,
+                gY = options.gridY ? options.gridY : this.tzDefaults.gridY;
+//            console.log(this.status);
+            this.status.gridX = gX;
+            this.status.gridY = gY;
+            /*console.log(options);
+            console.log(gX);
+            console.log(gY);*/
+            this.rElmt.attr({x:gX * Tianzi.scale * this.rDefaults.width, y:gY * Tianzi.scale * this.rDefaults.height });
+            //todo 和Tianzi.scale 相关的应该还有别的东西 最好整理下
             this.rElmt.TZBindObj = this;
             this.squareId = _.last(squareBox) ? _.last(squareBox).squareId + 1 : 1 ;
             squareBox.push(this);
@@ -140,7 +148,7 @@ Tianzi = function(paper) {
             this.rElmt.mouseout(function(event){
                 this.stop().animate({transform:'s1r0'},500);
             });
-            console.log('sqr created');
+//            console.log('sqr created');
 
         },
         delete : function(){
@@ -250,6 +258,7 @@ Tianzi = function(paper) {
         create : function(options){
             var bBox = options.bBox || { x:0, y:0};
             var txt = options.txt || '';
+            this.status = {};
             this.rElmt = paper.text( (bBox.x + bBox.x2) / 2 ,(bBox.y + bBox.y2) / 2  ,txt);  // text-anchor默认middle时是设定文字中心点坐标
             this.rElmt.TZBindObj = this;
             //事件绑定--------------------
@@ -286,20 +295,16 @@ Tianzi = function(paper) {
      *
      */
     init = function(){
-//                console.log(this);
         var firstBoard = new Tianzi.Board();
         var startList = {
-            Squares : [{ gridX:4, gridY:6 },{ gridX:3, gridY:2 },{ gridX:4, gridY:8 },{ gridX:4, gridY:9 },{ gridX:4, gridY:3 }]
+            Squares : [{ gridX:4, gridY:6 },{ gridX:5, gridY:2 },{ gridX:4, gridY:8 },{ gridX:4, gridY:9 },{ gridX:4, gridY:3 }]
         }
         _.each(startList.Squares,function(val,key){
-            var sqr = new Tianzi.Square({x:val.gridX,y:val.gridY });
-            squareBox.push(sqr);
+            var sqr = new Tianzi.Square({gridX:val.gridX,gridY:val.gridY });
         })
-
         //TODO inputBox作为dom元素的事件绑定  应该放到Tianzi里面一个合适的位置
         inputWrapper.on('click',function(event){
             inputBox[0].focus();
-            //todo 怎么把输入焦点放在输入框上？？
         })
         inputBox.on('keydown',function(event){
 //            console.log(event);  //todo 找出metakey graphcikey等等的意思是什么  Esc键怎么检测？
@@ -346,7 +351,7 @@ Tianzi.prototype = {
     invokedObj : {
         square : null
     },
-    refreshTxt : function(){
+    refreshTxt : function(){  //todo  这个的存在意义是什么？
         inputWrapper.hide();
         var ivObj = tianzi.invokedObj.square;
 //        console.log(ivObj);
@@ -372,50 +377,7 @@ function applyDefaultPara(theClassDefault,theObj,options){
 }
 
 
- //获取鼠标位置 原生方法 暂定
 
-///**
-// * 获取鼠标在页面上的位置
-// * @param ev		触发的事件
-// * @return			x:鼠标在页面上的横向位置, y:鼠标在页面上的纵向位置
-// */
-//function getMousePoint(ev) {
-//    // 定义鼠标在视窗中的位置
-//    var point = {
-//        x:0,
-//        y:0
-//    };
-//
-//    // 如果浏览器支持 pageYOffset, 通过 pageXOffset 和 pageYOffset 获取页面和视窗之间的距离
-//    if(typeof window.pageYOffset != "undefined") {
-//        point.x = window.pageXOffset;
-//        point.y = window.pageYOffset;
-//    }
-//    // 如果浏览器支持 compatMode, 并且指定了 DOCTYPE, 通过 documentElement 获取滚动距离作为页面和视窗间的距离
-//    // IE 中, 当页面指定 DOCTYPE, compatMode 的值是 CSS1Compat, 否则 compatMode 的值是 BackCompat
-//    else if(typeof document.compatMode != "undefined" && document.compatMode != "BackCompat") {
-//        point.x = document.documentElement.scrollLeft;
-//        point.y = document.documentElement.scrollTop;
-//    }
-//    // 如果浏览器支持 document.body, 可以通过 document.body 来获取滚动高度
-//    else if(typeof document.body != "undefined") {
-//        point.x = document.body.scrollLeft;
-//        point.y = document.body.scrollTop;
-//    }
-//
-//    // 加上鼠标在视窗中的位置
-//    point.x += ev.clientX;
-//    point.y += ev.clientY;
-////    console.log('ccc');
-//    console.log(point);
-//    // 返回鼠标在视窗中的位置
-//    return point;
-//}
-//
-//document.onmousedown = function(event){
-//    console.log('document click');
-//    getMousePoint(event);
-//}
 
 debug = function(){
 //    return this;
@@ -451,11 +413,29 @@ var todoList = {
 }
 
 function saveGameData(){
-    var Squares = {},sqrIndex=0;
-
+    //todo 使用localstorage存储json的缺点在于  如果json对象很大， 那么每次读写都要用JSON来在字符和对象间转换 用WebSql会好点么？
+    var Squares = {};
+    var Texts = {};
+    localStorage['Squares'] = null;
+//    localStorage['Texts'] = null; // 没有独立于方框存在的字的话，就不需要这个了
+//    console.log(squareBox);
     _.each(squareBox,function(item,idx){
-        Squares[idx] = {  gridX : item.status.gridX , gridY : item.status.gridY  };
-        console.log('add one aqr into Squares');
+        Squares[item.squareId] = {  gridX : item.status.gridX , gridY : item.status.gridY  };
+        if(item.relatedText){
+            Texts[item.relatedText.textId] = {relatedSquareId : item.squareId};
+            Squares[item.squareId]['relatedTextId'] = item.relatedText.textId;
+            Squares[item.squareId]['relatedTextTxt'] = item.relatedText.txt;
+        }
+        else {
+//            Squares[item.squareId]['relatedTextId'] = null;  //null 还是数字比较好呢？
+        }
+//        console.log('add one aqr into Squares');
     })
     localStorage.setItem('Squares',JSON.stringify(Squares));
+}
+
+function loadGameData(){
+    var squares ;
+    squares = JSON.parse( localStorage.getItem('Squares'));
+    console.log(squares);
 }

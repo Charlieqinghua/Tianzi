@@ -31,6 +31,8 @@
 <div id="debugWrapper">
     <input type="text" id="debugInput" placeholder="debugInput">
     <button onclick="window.debug.printObjInfo({});">打印对象信息</button>
+    <button onclick="saveGameData();">保存游戏信息</button>
+    <button onclick="loadGameData();">读取游戏信息</button>
     <div class="output"></div>
 </div>
 <div id="inputWrapper">
@@ -39,7 +41,8 @@
 <style type="text/css">
     #debugWrapper{float: left;margin-left: 50px;}
     #svgWrapper { margin-left: 100px; float: left;}
-    #svgWrapper svg{border: #fbb450 1px solid ;}
+    #svgWrapper svg{border: transparent 1px solid ;}
+    #svgWrapper svg:hover{border: #fbb450 1px solid ;}
     #inputWrapper{position:absolute;background: rgb(162, 207, 243); overflow: auto; border-radius: 6px; padding: 4px; display: inline-block; border: 2px rgb(140, 171, 228) solid }
     #inputBox{width:24px;line-height: 24px; font-size: 20px; padding: 6px;border: none;outline: none;}
 </style>

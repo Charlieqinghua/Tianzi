@@ -37,6 +37,8 @@
         current_event,
         stop,
         events = {n: {}},
+        //cm   新加入的默认数字列表   等待放到另一个地方
+        ANIMATEQUEUEMS_DEFAULT = 200,  ////默认200还是0呢？
     /*\
      * eve
      [ method ]
@@ -3118,7 +3120,7 @@
                     touch;
                 while (i--) {
                     touch = e.touches[i];
-                    if (touch.identifier == dragi.el._drag.id) {
+                    if (touch.identifier == dragi.el._drag.squareId) {
                         x = touch.clientX;
                         y = touch.clientY;
                         (e.originalEvent ? e.originalEvent : e).preventDefault();
@@ -3138,10 +3140,10 @@
             o = dragi.el.paper.getElementByPoint(x, y);
             node.style.display = display;
             g.win.opera && (next ? parent.insertBefore(node, next) : parent.appendChild(node));
-            o && eve("raphael.drag.over." + dragi.el.id, dragi.el, o);
+            o && eve("raphael.drag.over." + dragi.el.squareId, dragi.el, o);
             x += scrollX;
             y += scrollY;
-            eve("raphael.drag.move." + dragi.el.id, dragi.move_scope || dragi.el, x - dragi.el._drag.x, y - dragi.el._drag.y, x, y, e);
+            eve("raphael.drag.move." + dragi.el.squareId, dragi.move_scope || dragi.el, x - dragi.el._drag.x, y - dragi.el._drag.y, x, y, e);
         }
     },
     dragUp = function (e) {
@@ -3151,7 +3153,7 @@
         while (i--) {
             dragi = drag[i];
             dragi.el._drag = {};
-            eve("raphael.drag.end." + dragi.el.id, dragi.end_scope || dragi.start_scope || dragi.move_scope || dragi.el, e);
+            eve("raphael.drag.end." + dragi.el.squareId, dragi.end_scope || dragi.start_scope || dragi.move_scope || dragi.el, e);
         }
         drag = [];
     },
@@ -3425,7 +3427,7 @@
      | }
     \*/
     elproto.data = function (key, value) {
-        var data = eldata[this.id] = eldata[this.id] || {};
+        var data = eldata[this.squareId] = eldata[this.squareId] || {};
         if (arguments.length == 1) {
             if (R.is(key, "object")) {
                 for (var i in key) if (key[has](i)) {
@@ -3433,11 +3435,11 @@
                 }
                 return this;
             }
-            eve("raphael.data.get." + this.id, this, data[key], key);
+            eve("raphael.data.get." + this.squareId, this, data[key], key);
             return data[key];
         }
         data[key] = value;
-        eve("raphael.data.set." + this.id, this, value, key);
+        eve("raphael.data.set." + this.squareId, this, value, key);
         return this;
     };
     /*\
@@ -3452,9 +3454,9 @@
     \*/
     elproto.removeData = function (key) {
         if (key == null) {
-            eldata[this.id] = {};
+            eldata[this.squareId] = {};
         } else {
-            eldata[this.id] && delete eldata[this.id][key];
+            eldata[this.squareId] && delete eldata[this.squareId][key];
         }
         return this;
     };
@@ -3466,7 +3468,7 @@
      = (object) data
     \*/
     elproto.getData = function () {
-        return eldata[this.id] || {};
+        return eldata[this.squareId] || {};
     };
     /*\
      * Element.hover
@@ -3534,13 +3536,13 @@
                 scrollX = g.doc.documentElement.scrollLeft || g.doc.body.scrollLeft;
             this._drag.x = e.clientX + scrollX;
             this._drag.y = e.clientY + scrollY;
-            this._drag.id = e.identifier;
+            this._drag.squareId = e.identifier;
             !drag.length && R.mousemove(dragMove).mouseup(dragUp);
             drag.push({el: this, move_scope: move_scope, start_scope: start_scope, end_scope: end_scope});
-            onstart && eve.on("raphael.drag.start." + this.id, onstart);
-            onmove && eve.on("raphael.drag.move." + this.id, onmove);
-            onend && eve.on("raphael.drag.end." + this.id, onend);
-            eve("raphael.drag.start." + this.id, start_scope || move_scope || this, e.clientX + scrollX, e.clientY + scrollY, e);
+            onstart && eve.on("raphael.drag.start." + this.squareId, onstart);
+            onmove && eve.on("raphael.drag.move." + this.squareId, onmove);
+            onend && eve.on("raphael.drag.end." + this.squareId, onend);
+            eve("raphael.drag.start." + this.squareId, start_scope || move_scope || this, e.clientX + scrollX, e.clientY + scrollY, e);
         }
         this._drag = {};
         draggable.push({el: this, start: start});
@@ -3556,7 +3558,7 @@
      - f (function) handler for event, first argument would be the element you are dragging over
     \*/
     elproto.onDragOver = function (f) {
-        f ? eve.on("raphael.drag.over." + this.id, f) : eve.unbind("raphael.drag.over." + this.id);
+        f ? eve.on("raphael.drag.over." + this.squareId, f) : eve.unbind("raphael.drag.over." + this.squareId);
     };
     /*\
      * Element.undrag
@@ -3569,7 +3571,7 @@
         while (i--) if (draggable[i].el == this) {
             this.unmousedown(draggable[i].start);
             draggable.splice(i, 1);
-            eve.unbind("raphael.drag.*." + this.id);
+            eve.unbind("raphael.drag.*." + this.squareId);
         }
         !draggable.length && R.unmousemove(dragMove).unmouseup(dragUp);
         drag = [];
@@ -3920,7 +3922,7 @@
     paperproto.getById = function (id) {
         var bot = this.bottom;
         while (bot) {
-            if (bot.id == id) {
+            if (bot.squareId == id) {
                 return bot;
             }
             bot = bot.next;
@@ -4453,12 +4455,12 @@
                         setTimeout(function () {
                             eve("raphael.anim.frame." + id, that, anim);
                         });
-                    })(that.id, that, e.anim);
+                    })(that.squareId, that, e.anim);
                 } else {
                     (function(f, el, a) {
                         setTimeout(function() {
-                            eve("raphael.anim.frame." + el.id, el, a);
-                            eve("raphael.anim.finish." + el.id, el, a);
+                            eve("raphael.anim.frame." + el.squareId, el, a);
+                            eve("raphael.anim.finish." + el.squareId, el, a);
                             R.is(f, "function") && f.call(el);
                         });
                     })(e.callback, that, e.anim);
@@ -4578,7 +4580,7 @@
         return solve(t, 1 / (200 * duration));
     }
     elproto.onAnimation = function (f) {
-        f ? eve.on("raphael.anim.frame." + this.id, f) : eve.unbind("raphael.anim.frame." + this.id);
+        f ? eve.on("raphael.anim.frame." + this.squareId, f) : eve.unbind("raphael.anim.frame." + this.squareId);
         return this;
     };
     function Animation(anim, ms) {
@@ -4652,7 +4654,7 @@
         if (status) {
             for (i = 0, ii = animationElements.length; i < ii; i++) {
                 var e = animationElements[i];
-                if (e.el.id == element.id && e.anim == anim) {
+                if (e.el.squareId == element.squareId && e.anim == anim) {
                     if (e.percent != percent) {
                         animationElements.splice(i, 1);
                         isInAnimSet = 1;
@@ -4840,7 +4842,7 @@
             isInAnim.initstatus = status;
             isInAnim.start = new Date - isInAnim.ms * status;
         }
-        eve("raphael.anim.start." + element.id, element, anim);
+        eve("raphael.anim.start." + element.squareId, element, anim);
     }
     /*\
      * Raphael.animation
@@ -4910,6 +4912,33 @@
         runAnimation(anim, element, anim.percents[0], null, element.attr());
         return element;
     };
+    /**
+     * 给出一个动画的序列，一个接一个执行  递归之？
+     * @param {Object} 应该包括animation对象和时间
+     * @author cm
+     *
+     */
+    elproto.animateQueue = function(queue){
+        var animatingObj = this; //应该是Element
+        if(queue.length > 1){
+            var firstAnim = queue[0];
+            var secondAnim = queue[1];
+            var ms = firstAnim.ms ? firstAnim.ms : ANIMATEQUEUEMS_DEFAULT ;
+            var animation = firstAnim.animation ;
+            animatingObj.animate(animation,ms,function(){
+                var newQueue = _.rest(queue);//todo 调用underscore太复杂，待改进
+                animatingObj.animateQueue(newQueue);
+            });
+        }
+        else{  //只剩一个动画了
+            var ms = queue[0].ms ? queue[0].ms : ANIMATEQUEUEMS_DEFAULT ;
+            var animation = queue[0].animation ;
+            animatingObj.animate(animation,ms,function(){
+                //todo  有没有一个关于正在动画与否的isAnimating 状态更新？
+            });
+        }
+
+    };
     /*\
      * Element.setTime
      [ method ]
@@ -4965,7 +4994,7 @@
             len = animationElements.length;
             for (; i < len; i++) {
                 e = animationElements[i];
-                if (e.el.id == this.id && (!anim || e.anim == anim)) {
+                if (e.el.squareId == this.squareId && (!anim || e.anim == anim)) {
                     if (anim) {
                         return e.status;
                     }
@@ -4994,8 +5023,8 @@
      = (object) original element
     \*/
     elproto.pause = function (anim) {
-        for (var i = 0; i < animationElements.length; i++) if (animationElements[i].el.id == this.id && (!anim || animationElements[i].anim == anim)) {
-            if (eve("raphael.anim.pause." + this.id, this, animationElements[i].anim) !== false) {
+        for (var i = 0; i < animationElements.length; i++) if (animationElements[i].el.squareId == this.squareId && (!anim || animationElements[i].anim == anim)) {
+            if (eve("raphael.anim.pause." + this.squareId, this, animationElements[i].anim) !== false) {
                 animationElements[i].paused = true;
             }
         }
@@ -5014,9 +5043,9 @@
      = (object) original element
     \*/
     elproto.resume = function (anim) {
-        for (var i = 0; i < animationElements.length; i++) if (animationElements[i].el.id == this.id && (!anim || animationElements[i].anim == anim)) {
+        for (var i = 0; i < animationElements.length; i++) if (animationElements[i].el.squareId == this.squareId && (!anim || animationElements[i].anim == anim)) {
             var e = animationElements[i];
-            if (eve("raphael.anim.resume." + this.id, this, e.anim) !== false) {
+            if (eve("raphael.anim.resume." + this.squareId, this, e.anim) !== false) {
                 delete e.paused;
                 this.status(e.anim, e.status);
             }
@@ -5036,8 +5065,8 @@
      = (object) original element
     \*/
     elproto.stop = function (anim) {
-        for (var i = 0; i < animationElements.length; i++) if (animationElements[i].el.id == this.id && (!anim || animationElements[i].anim == anim)) {
-            if (eve("raphael.anim.stop." + this.id, this, animationElements[i].anim) !== false) {
+        for (var i = 0; i < animationElements.length; i++) if (animationElements[i].el.squareId == this.squareId && (!anim || animationElements[i].anim == anim)) {
+            if (eve("raphael.anim.stop." + this.squareId, this, animationElements[i].anim) !== false) {
                 animationElements.splice(i--, 1);
             }
         }
@@ -5674,7 +5703,7 @@ window.Raphael && window.Raphael.svg && function (R) {
     },
     addGradientFill = function (element, gradient) {
         var type = "linear",
-            id = element.id + gradient,
+            id = element.squareId + gradient,
             fx = .5, fy = .5,
             o = element.node,
             SVG = element.paper,
@@ -5720,13 +5749,13 @@ window.Raphael && window.Raphael.svg && function (R) {
             }
             id = id.replace(/[\(\)\s,\xb0#]/g, "_");
             
-            if (element.gradient && id != element.gradient.id) {
+            if (element.gradient && id != element.gradient.squareId) {
                 SVG.defs.removeChild(element.gradient);
                 delete element.gradient;
             }
 
             if (!element.gradient) {
-                el = $(type + "Gradient", {id: id});
+                el = $(type + "Gradient", {squareId: id});
                 element.gradient = el;
                 $(el, type == "radial" ? {
                     fx: fx,
@@ -5830,7 +5859,7 @@ window.Raphael && window.Raphael.svg && function (R) {
                     p.defs.appendChild($($("path"), {
                         "stroke-linecap": "round",
                         d: markers[type],
-                        id: pathId
+                        squareId: pathId
                     }));
                     markerCounter[pathId] = 1;
                 } else {
@@ -5840,7 +5869,7 @@ window.Raphael && window.Raphael.svg && function (R) {
                     use;
                 if (!marker) {
                     marker = $($("marker"), {
-                        id: markerId,
+                        squareId: markerId,
                         markerHeight: h,
                         markerWidth: w,
                         orient: "auto",
@@ -5977,7 +6006,7 @@ window.Raphael && window.Raphael.svg && function (R) {
                             o.clip && o.clip.parentNode.parentNode.removeChild(o.clip.parentNode);
                             var el = $("clipPath"),
                                 rc = $("rect");
-                            el.id = R.createUUID();
+                            el.squareId = R.createUUID();
                             $(rc, {
                                 x: rect[0],
                                 y: rect[1],
@@ -5986,7 +6015,7 @@ window.Raphael && window.Raphael.svg && function (R) {
                             });
                             el.appendChild(rc);
                             o.paper.defs.appendChild(el);
-                            $(node, {"clip-path": "url(#" + el.id + ")"});
+                            $(node, {"clip-path": "url(#" + el.squareId + ")"});
                             o.clip = rc;
                         }
                         if (!value) {
@@ -6090,7 +6119,7 @@ window.Raphael && window.Raphael.svg && function (R) {
                         if (isURL) {
                             el = $("pattern");
                             var ig = $("image");
-                            el.id = R.createUUID();
+                            el.squareId = R.createUUID();
                             $(el, {x: 0, y: 0, patternUnits: "userSpaceOnUse", height: 1, width: 1});
                             $(ig, {x: 0, y: 0, "xlink:href": isURL[1]});
                             el.appendChild(ig);
@@ -6105,7 +6134,7 @@ window.Raphael && window.Raphael.svg && function (R) {
                                 });
                             })(el);
                             o.paper.defs.appendChild(el);
-                            $(node, {fill: "url(#" + el.id + ")"});
+                            $(node, {fill: "url(#" + el.squareId + ")"});
                             o.pattern = el;
                             o.pattern && updatePosition(o);
                             break;
@@ -6251,8 +6280,8 @@ window.Raphael && window.Raphael.svg && function (R) {
          * Unique id of the element. Especially usesful when you want to listen to events of the element, 
          * because all events are fired in format `<module>.<action>.<id>`. Also useful for @Paper.getById method.
         \*/
-        this.id = R._oid++;
-        node.raphaelid = this.id;
+        this.squareId = R._oid++;
+        node.raphaelid = this.squareId;
         this.matrix = R.matrix();
         this.realPath = null;
         /*\
@@ -6495,7 +6524,7 @@ window.Raphael && window.Raphael.svg && function (R) {
         }
         var paper = this.paper;
         paper.__set__ && paper.__set__.exclude(this);
-        eve.unbind("raphael.*.*." + this.id);
+        eve.unbind("raphael.*.*." + this.squareId);
         if (this.gradient) {
             paper.defs.removeChild(this.gradient);
         }
@@ -6655,7 +6684,7 @@ window.Raphael && window.Raphael.svg && function (R) {
             params = name;
         }
         for (var key in params) {
-            eve("raphael.attr." + key + "." + this.id, this, params[key]);
+            eve("raphael.attr." + key + "." + this.squareId, this, params[key]);
         }
         for (key in this.paper.customAttributes) if (this.paper.customAttributes[has](key) && params[has](key) && R.is(this.paper.customAttributes[key], "function")) {
             var par = this.paper.customAttributes[key].apply(this, [].concat(params[key]));
@@ -6751,12 +6780,12 @@ window.Raphael && window.Raphael.svg && function (R) {
             var fltr = $("filter"),
                 blur = $("feGaussianBlur");
             t.attrs.blur = size;
-            fltr.id = R.createUUID();
+            fltr.squareId = R.createUUID();
             $(blur, {stdDeviation: +size || 1.5});
             fltr.appendChild(blur);
             t.paper.defs.appendChild(fltr);
             t._blur = fltr;
-            $(t.node, {filter: "url(#" + fltr.id + ")"});
+            $(t.node, {filter: "url(#" + fltr.squareId + ")"});
         } else {
             if (t._blur) {
                 t._blur.parentNode.removeChild(t._blur);
@@ -7410,8 +7439,8 @@ window.Raphael && window.Raphael.vml && function (R) {
     Element = function (node, vml) {
         this[0] = this.node = node;
         node.raphael = true;
-        this.id = R._oid++;
-        node.raphaelid = this.id;
+        this.squareId = R._oid++;
+        node.raphaelid = this.squareId;
         this.X = 0;
         this.Y = 0;
         this.attrs = {};
@@ -7568,7 +7597,7 @@ window.Raphael && window.Raphael.vml && function (R) {
             return;
         }
         this.paper.__set__ && this.paper.__set__.exclude(this);
-        R.eve.unbind("raphael.*.*." + this.id);
+        R.eve.unbind("raphael.*.*." + this.squareId);
         R._tear(this, this.paper);
         this.node.parentNode.removeChild(this.node);
         this.shape && this.shape.parentNode.removeChild(this.shape);
@@ -7622,7 +7651,7 @@ window.Raphael && window.Raphael.vml && function (R) {
         }
         value == null && R.is(name, "object") && (params = name);
         for (var key in params) {
-            eve("raphael.attr." + key + "." + this.id, this, params[key]);
+            eve("raphael.attr." + key + "." + this.squareId, this, params[key]);
         }
         if (params) {
             for (key in this.paper.customAttributes) if (this.paper.customAttributes[has](key) && params[has](key) && R.is(this.paper.customAttributes[key], "function")) {
@@ -7951,9 +7980,10 @@ window.Raphael && window.Raphael.vml && function (R) {
                 });
             };
         })(method);
-    }
+    };
     /**
      * @desc    每个R元素都有一个对应的TianZi游戏对象
      */
     Raphael.el.TZBindObj = null;
+
 }(window.Raphael);
