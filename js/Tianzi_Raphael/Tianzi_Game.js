@@ -52,15 +52,10 @@ Tianzi = function(paper) {
     /**
      *  放字框的游戏板子
      * @param {Object} 传递的 Raphael 实体
+     * @parent {Object} Tianzi.Coomponent
      * @return {*}
      */
-    Tianzi.Board = function() {
-        this.create();
-        return this;
-    };
-    Tianzi.Board.prototype = {
-        rElmt : null,
-        // fillColor : "#dddd44",
+    Tianzi.Board = Tianzi.Component.extend({
         rDefaults:{
             // //蓝黄
             // fill:"#41bea8",
@@ -84,7 +79,6 @@ Tianzi = function(paper) {
         create : function(){
             var el = this;
             this.refresh();
-//            console.log(this.matrix);
             this.rElmt = paper.set();
             this.rElmt.TZBindObj = this;
             this.rElmt.push(
@@ -116,26 +110,24 @@ Tianzi = function(paper) {
 
 
         }
-    };
+    })
     /**
      *  文字的框框
      * @param arguments
      * @return {*}
      */
-    Tianzi.Square = function (arguments){
-
-        var square = this.create(arguments);
-        return square;
-    };
-    Tianzi.Square.prototype = {
-        el : null,  //创建（create）的时候制定的自身引用
+//    Tianzi.Square = function (arguments){
+//
+//        var square = this.create(arguments);
+//        return square;
+//    };
+    Tianzi.Square = Tianzi.Component.extend( {
         squareId : 0,
         status : {
             gridX : null,
             gridY : null,
             invoked : false
         },
-        rElmt : null,
         relatatedText : null,  //对应的Tianzi.Text
         _tzDefaults : {  // 对应tianzi游戏的默认
             gridX : 0,
@@ -150,6 +142,9 @@ Tianzi = function(paper) {
             stroke : '#febe28',
             width : BOARD_SIZE.gridWidth,
             height :BOARD_SIZE.gridWidth
+        },
+        init : function(options){
+            this.create(options);
         },
         create : function(options){
             el = this; //需要么？
@@ -212,10 +207,11 @@ Tianzi = function(paper) {
                 //碰撞检测如果只用raphael的isBoxIntersection做 会不会振荡太久？
                 this.center = getCenter.call(this,this);
                 var pInGrid = getPointInGrid(this.center);  //todo 碰撞检测也要考虑mouseover以后的放大倍数
-                if(tianzi.board.matrix[pInGrid.gridX][pInGrid.gridY]){
+                if(tianzi.board.matrix[pInGrid.gridX] && tianzi.board.matrix[pInGrid.gridX][pInGrid.gridY]){
 //                        console.log(tianzi.board.matrix[pInGrid.gridX][pInGrid.gridY]); //todo 这个要shake一下
 //                        console.log('ocupied');
-                }else{
+                }
+                else{
                     //todo  出现空的框线or？？ 提示可以放入
                 }
             };
@@ -227,7 +223,9 @@ Tianzi = function(paper) {
 //                this.delete(positionOrigin);  //这样写对么？
                 this.center = getCenter.call(this,this);
                 var newGridPos = getPointInGrid(this.center);
-                if(tianzi.board.matrix[newGridPos.gridX][newGridPos.gridY]){ //已经被占据
+                if(newGridPos.gridX >= tianzi.boardOption.xGrids
+                    || newGridPos.gridY>= tianzi.boardOption.yGrids
+                    || (tianzi.board.matrix[newGridPos.gridX] && tianzi.board.matrix[newGridPos.gridX][newGridPos.gridY])){ //超出棋盘外  已经被占据 好麻烦的判据
                     //todo
                     this.animate({x:this.positionOrigin.x ,y: this.positionOrigin.y},300); //square放回旧位置    为什么会突然错位一下？有时间调试之
                     if(this.TZBindObj.relatedText){//text放回旧位置
@@ -255,6 +253,7 @@ Tianzi = function(paper) {
                     this.TZBindObj.status.gridX = newGridPos.gridX ; //刷新status
                     this.TZBindObj.status.gridY = newGridPos.gridY ;
                     //刷新matrix
+
                     tianzi.board.matrix[newGridPos.gridX][newGridPos.gridY] = {sqrId:this.TZBindObj.sqrId};
                     var oldPos = getPointInGrid(this.positionOrigin);
                     tianzi.board.matrix[oldPos.gridX][oldPos.gridY] = null;
@@ -350,7 +349,7 @@ Tianzi = function(paper) {
         mouseout : function(){}
 
 
-    };
+    });
     /**
      *
      * 显示的文字
@@ -359,14 +358,8 @@ Tianzi = function(paper) {
      *  @tips 鉴于没有独立于squre存在的text 所以最好不要直接创建，而是使用square的addText
      *
      */
-    Tianzi.Text = function(options){
-        this.create(options);
-
-        return this;
-    }
-    Tianzi.Text.prototype = {
+    Tianzi.Text = Tianzi.Component.extend({
         textId : 0 ,
-        rElmt : null,
         txt : '',
         status : {
             gridX : 0,
@@ -405,7 +398,7 @@ Tianzi = function(paper) {
             this.rElmt.drag(function(event){
 //                console.log('drag');
                 this.drag({eventArg:event});
-                console.log(event);
+//                console.log(event);
             });
 
         },
@@ -421,7 +414,7 @@ Tianzi = function(paper) {
 //            this.rElmt
 
         }
-    }
+    });
 
 //    属于Tianzi的部分  -------------------------------------------------------------
 
@@ -500,8 +493,8 @@ Tianzi.prototype = {
 //        for test----------------------------
         var startList = {
             Squares : {
-                1 : { gridX:4, gridY:6,relatedTextId:4,relatedTextTxt:'老' },
-                2 : { gridX:9, gridY:2 },
+                1 : { gridX:4, gridY:6 },
+                2 : { gridX:9, gridY:2,relatedTextId:4,relatedTextTxt:'老' },
                 3 : { gridX:4, gridY:8 },
                 4 : { gridX:3, gridY:9 },
                 5 : { gridX:7, gridY:3 }
@@ -513,3 +506,26 @@ Tianzi.prototype = {
 //---------------------------- for test
 
 }
+
+/**
+ * Tianzi中所有有Raphael显示的元素的父类  检测create方法并执行
+ * @type {MyClass}
+ *
+ */
+Tianzi.Component = MyClass.extend({
+    //todo 让大家都继承这个类，实现基本的调试功能  使用John 的简单继承法
+    init : function(options){
+        if(this.create)   this.create(options);
+    },
+    rElmt : null,
+    /**
+     * 传入需要查询的属性名列表
+     * @param list  一个数组 元素是表示属性名的字符串
+     */
+    debug : function(list){
+        _.each(list,function(item,index){
+            console.log(el[item.toString()]);//巨诡异的实现法，脑子被门夹了吧我！！
+        })
+    }
+});
+

@@ -1,24 +1,4 @@
-Tianzi.Component = Class.extend({
-    //todo 让大家都继承这个类，实现基本的调试功能  使用John 的简单继承法
-    init : function(){
-        var el = this;
-    },
-    debug : function(list){
-        _.each(list,function(item,index){
-            console.log(el[item.toString()]);//巨诡异的实现法，脑子被门夹了吧我！！
-        })
-    }
-});
-Tianzi.Component.prototype = {
-
-
-}
-Tianzi.Frame =function(options){
-    this.create(options);
-    return this;
-
-}
-Tianzi.Frame.prototype = {
+Tianzi.Frame = Tianzi.Component.extend({
     frameId : 0,
     rElmt : null,
     status :{
@@ -57,4 +37,4 @@ Tianzi.Frame.prototype = {
 
         frameBox.push(this);
     }
-}
+})
