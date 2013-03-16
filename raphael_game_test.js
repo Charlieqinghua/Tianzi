@@ -4,7 +4,7 @@
 /*todo  总备忘 Raphael.isBBoxIntersect 检测盒碰撞？    setViewbox?缩放棋盘的关键  看api
  */
 //todo 文字拖动时变成搜索怎么办？ 阻止默认事件？
-
+//todo 加入层的概念？ Raphael 原本的toFront会直接到离屏幕最近  但是游戏应该有个spritegroup的概念
 var paper;
 
 
@@ -16,7 +16,6 @@ $(document).ready(function(){
     window.tianzi = new Tianzi(paper);
     tianzi.run();
     window.debug = new debug();
-
 })
 
 
@@ -40,7 +39,8 @@ Tianzi = function(paper) {
 //    调试方便的外露部分，暂时的     以后要封装进Tianzi的闭合作用域
     window.squareBox = [];
     window.textBox = [];
-    window.Tianzi = this;
+    window.frameBox = [];
+//    window.Tianzi = this;
     window.testWordBox = '我是一个测试DUMBman'.split('');
     window.inputBox = $('#inputBox');
     window.inputWrapper = $('#inputWrapper');
@@ -93,12 +93,14 @@ Tianzi = function(paper) {
 //            绑定给raphael的click函数
             this.rElmt.click(function(event){
                 mouseToSvg = { offsetX:event.offsetX, offsetY:event.offsetY };
+//                console.log(mouseToSvg);
                 el.click({mouseToSvg : mouseToSvg ,eventArg : event});
             });
             this.rElmt.drag(function(){})
         },
         click : function(args){
             point = args.mouseToSvg;
+            //todo 考虑盘面起始位置以及scale的变化
 //            console.log(args.eventArg);
 //            没想好封装名  单击时候按着shift键 添加格子 优先判断shift
             if(args.eventArg.shiftKey == true){
@@ -152,11 +154,7 @@ Tianzi = function(paper) {
         create : function(options){
             el = this; //需要么？
             this.status = {}; //注意要初始化！！！！要不然后面改单项有屁用！
-            if(options.squareId){
-                this.squareId = options.squareId;
-            }else{
-                this.squareId = _.last(squareBox) ? _.last(squareBox).squareId + 1 : 1 ; //如果last的id不是最大，可能出现重叠现象
-            }
+            this.squareId = _.last(squareBox) ? _.last(squareBox).squareId + 1 : 1 ; //如果last的id不是最大，可能出现重叠现象
 //            adjustByScale();  //TODO  是基于proto的继承呢？ 还是每个类单独写一个
             applyDefaultPara.call(this.rDefaults,Tianzi.Square,this,options);
             this.rElmt = paper.rect().attr(this.rDefaults);  //按照外观的默认值构建   先用raphael的rect 以后可能会改成一个单独绘图函数
@@ -174,11 +172,6 @@ Tianzi = function(paper) {
 
             squareBox.push(this);
 
-            this.rElmt.click(function(event){
-                this.TZBindObj.click({eventArg:event});  //这里的this指向的是Raphael??
-                console.log('clicked');
-//                console.log(event);
-            });
             this.rElmt.mouseover(function(event){
                 this.stop().animateQueue(squareMouseoverQueue);
                 this.toFront(); //放到最上层
@@ -190,92 +183,90 @@ Tianzi = function(paper) {
             this.rElmt.mouseout(function(event){
                 this.stop().animate({transform:'s1r0'},500);  //todo 先消失一下，整合到drag onend里
             });
+            this.rElmt.onDragStart = function(dx,dy,event){
+                //onstart 参数两个 距离window边缘的像素  scrollTop??   event  mouseevent
+//                    click-------------
+                this.TZBindObj.click({eventArg:event});  //todo 如果移动速度不大就说明仅仅是单击？？
+//                    ---------------click
+                this.TZBindObj.holder = paper.set(this.clone());
+//                console.log(this.TZBindObj);
+                this.positionOrigin = {x:parseInt(this.attr('x')) , y:parseInt(this.attr('y'))}; //positionOrigin是相对于svg的
+                if(this.TZBindObj.relatedText){
+                    this.textOrigin = {x:this.TZBindObj.relatedText.rElmt.attr('x'),y:this.TZBindObj.relatedText.rElmt.attr('y')};
+                    this.TZBindObj.holder.push(this.TZBindObj.relatedText.rElmt.clone());
+                }
+                tianzi.invokedObj.draggingSetHolder = this.TZBindObj.holder;  //holer里是raphael元素
 
-//                Element.drag(onmove, onstart, onend, [mcontext], [scontext], [econtext])  todo 函数单独写出来会不会比较好？？要不每次创建都产生一个一模一样的新函数，占内存？？？询问之？？
-//            this.rElmt.drag(function(dx,dy,scx,scy){
-//                    //onmove 这里的dx dy好像代表像素在横向或者纵向的偏移数?    scx和scy怀疑是scrollLeft和scrollTop
-//                    var newLTInSvg ={  //square的左上角在svg中的位置
-//                        x:this.positionOrigin.x + dx ,y: this.positionOrigin.y + dy
-//                    }
-//                    this.attr(newLTInSvg);
-//                    if(this.TZBindObj.relatedText){
-//                        this.TZBindObj.relatedText.rElmt.attr({x:this.textOrigin.x+dx, y:this.textOrigin.y+dy});
-//                    }
-//                    //todo 检测在棋盘上的位置 碰撞检测  碰到空的位置要标出来  波纹特效（难度啊^）？？
-//                    //碰撞检测如果只用raphael的isBoxIntersection做 会不会振荡太久？
-//                    this.center = getCenter.call(this,this);
-//                    var pInGrid = getPointInGrid(this.center);  //todo 碰撞检测也要考虑mouseover以后的放大倍数
-//                    if(tianzi.board.matrix[pInGrid.gridX][pInGrid.gridY]){
-////                        console.log(tianzi.board.matrix[pInGrid.gridX][pInGrid.gridY]); //todo 这个要shake一下
-////                        console.log('ocupied');
-//                    }else{
-//                        //todo  出现空的框线or？？ 提示可以放入
-//                    }
-//
-//                },
-//                function(dx,dy,event){
-////                console.log(event);   为毛会抢了click事件啊啊啊啊啊
-//                    //onstart 参数两个 距离window边缘的像素  scrollTop??   event  mouseevent
-//                    this.TZBindObj.holder = paper.set(this.clone());
-//                    this.positionOrigin = {x:parseInt(this.attr('x')) , y:parseInt(this.attr('y'))}; //positionOrigin是相对于svg的
-//                    if(this.TZBindObj.relatedText){
-//                        this.textOrigin = {x:this.TZBindObj.relatedText.rElmt.attr('x'),y:this.TZBindObj.relatedText.rElmt.attr('y')};
-//                        this.TZBindObj.holder.push(this.TZBindObj.relatedText.rElmt.clone());
-//                    }
-//                    tianzi.invokedObj.draggingSetHolder = this.TZBindObj.holder;  //holer里是raphael元素
-//
-//                    //整合click
-////                    this.TZBindObj.click({eventArg:event});
-//                }
-//                ,function(event){
-//                    //onend  这里的event好像是mouseUp事件
-////                    console.log(event);
-//                    this.stop().animate({transform:'s1r0'},500); //尝试整合
-//                    //todo 检测在棋盘上的位置  要是没有被占据
-////                this.delete(positionOrigin);  //这样写对么？
-//                    this.center = getCenter.call(this,this);
-//                    var newGridPos = getPointInGrid(this.center);
-//                    if(tianzi.board.matrix[newGridPos.gridX][newGridPos.gridY]){ //已经被占据
-//                        //todo
-//                        this.animate({x:this.positionOrigin.x ,y: this.positionOrigin.y},300); //square放回旧位置    为什么会突然错位一下？有时间调试之
-//                        if(this.TZBindObj.relatedText){//text放回旧位置
-//                            this.TZBindObj.relatedText.rElmt.animate({x:this.textOrigin.x,y:this.textOrigin.y},200);
-//                        }
-//
-//                        this.TZBindObj.holder.remove(); //删除holder
-//
-//                    }else{//没有被占据
-//                        //todo
-//                        var newPos = convertGridPosToSvg(newGridPos);
-////                        console.log('not ocupied');
-//                        this.animate({x:newPos.x, y:newPos.y},200);//square移到新位置   这里异步动画需时间，所以不能在下面马上求center 否则会不准
-//                        //文字移到新位置
-//                        if(this.TZBindObj.relatedText){
-////                            this.TZBindObj.relatedText.rElmt.animate({x:this.textOrigin.x,y:this.textOrigin.y});
-////                            newSet.push(this.TZBindObj.relatedText.rElmt);
-//                            var textCenter = getCenter.call(this,
-//                                {x:newPos.x,y:newPos.y,x2:newPos.x+(tianzi.boardOption.gridWidth*tianzi.scale),y2:newPos.y+(tianzi.boardOption.gridWidth*tianzi.scale)}
-//                                ,'bBox');   //不确定   要是以后算法改了怎么办？  而且不够解耦啊这里
-//                            this.TZBindObj.relatedText.rElmt.animate({x:textCenter.x,y:textCenter.y},200)
-//                        }
-////                        newSet.animate({x:newPos.x, y:newPos.y},200);//square和文字移到新位置  (PД`q。)·。'゜   不行啊 还是要算text的位置
-//
-//                        this.TZBindObj.status.gridX = newGridPos.gridX ; //刷新status
-//                        this.TZBindObj.status.gridY = newGridPos.gridY ;
-//                        //刷新matrix
-//                        tianzi.board.matrix[newGridPos.gridX][newGridPos.gridY] = {sqrId:this.TZBindObj.sqrId};
-//                        var oldPos = getPointInGrid(this.positionOrigin);
-//                        tianzi.board.matrix[oldPos.gridX][oldPos.gridY] = null;
-//
-//                    }
-//
-//                    this.TZBindObj.holder.remove(); //删除holder
-//                    tianzi.invokedObj.draggingSetHolder = null;
-//                });
-//            this.rElmt.onDragOver(function(event){
-////                console.log('dragover');
-//            });
+                //整合click
+//                    this.TZBindObj.click({eventArg:event});
+            };
+            this.rElmt.onDragMove = function(dx,dy,scx,scy){
+                var newLTInSvg ={  //square的左上角在svg中的位置
+                    x:this.positionOrigin.x + dx ,y: this.positionOrigin.y + dy
+                }
+                this.attr(newLTInSvg);
+                if(this.TZBindObj.relatedText){
+                    this.TZBindObj.relatedText.rElmt.attr({x:this.textOrigin.x+dx, y:this.textOrigin.y+dy});
+                }
+                //todo 检测在棋盘上的位置 碰撞检测  碰到空的位置要标出来  波纹特效（难度啊^）？？
+                //碰撞检测如果只用raphael的isBoxIntersection做 会不会振荡太久？
+                this.center = getCenter.call(this,this);
+                var pInGrid = getPointInGrid(this.center);  //todo 碰撞检测也要考虑mouseover以后的放大倍数
+                if(tianzi.board.matrix[pInGrid.gridX][pInGrid.gridY]){
+//                        console.log(tianzi.board.matrix[pInGrid.gridX][pInGrid.gridY]); //todo 这个要shake一下
+//                        console.log('ocupied');
+                }else{
+                    //todo  出现空的框线or？？ 提示可以放入
+                }
+            };
+            this.rElmt.onDragOver = function(event){
+                //onend  这里的event好像是mouseUp事件
+//                    console.log(event);
+                this.stop().animate({transform:'s1r0'},500); //尝试整合
+                //todo 检测在棋盘上的位置  要是没有被占据
+//                this.delete(positionOrigin);  //这样写对么？
+                this.center = getCenter.call(this,this);
+                var newGridPos = getPointInGrid(this.center);
+                if(tianzi.board.matrix[newGridPos.gridX][newGridPos.gridY]){ //已经被占据
+                    //todo
+                    this.animate({x:this.positionOrigin.x ,y: this.positionOrigin.y},300); //square放回旧位置    为什么会突然错位一下？有时间调试之
+                    if(this.TZBindObj.relatedText){//text放回旧位置
+                        this.TZBindObj.relatedText.rElmt.animate({x:this.textOrigin.x,y:this.textOrigin.y},200);
+                    }
 
+                    this.TZBindObj.holder.remove(); //删除holder
+
+                }else{//没有被占据
+                    //todo
+                    var newPos = convertGridPosToSvg(newGridPos);
+//                        console.log('not ocupied');
+                    this.animate({x:newPos.x, y:newPos.y},200);//square移到新位置   这里异步动画需时间，所以不能在下面马上求center 否则会不准
+                    //文字移到新位置
+                    if(this.TZBindObj.relatedText){
+//                            this.TZBindObj.relatedText.rElmt.animate({x:this.textOrigin.x,y:this.textOrigin.y});
+//                            newSet.push(this.TZBindObj.relatedText.rElmt);
+                        var textCenter = getCenter.call(this,
+                            {x:newPos.x,y:newPos.y,x2:newPos.x+(tianzi.boardOption.gridWidth*tianzi.scale),y2:newPos.y+(tianzi.boardOption.gridWidth*tianzi.scale)}
+                            ,'bBox');   //不确定   要是以后算法改了怎么办？  而且不够解耦啊这里
+                        this.TZBindObj.relatedText.rElmt.animate({x:textCenter.x,y:textCenter.y},200)
+                    }
+//                        newSet.animate({x:newPos.x, y:newPos.y},200);//square和文字移到新位置  (PД`q。)·。'゜   不行啊 还是要算text的位置
+
+                    this.TZBindObj.status.gridX = newGridPos.gridX ; //刷新status
+                    this.TZBindObj.status.gridY = newGridPos.gridY ;
+                    //刷新matrix
+                    tianzi.board.matrix[newGridPos.gridX][newGridPos.gridY] = {sqrId:this.TZBindObj.sqrId};
+                    var oldPos = getPointInGrid(this.positionOrigin);
+                    tianzi.board.matrix[oldPos.gridX][oldPos.gridY] = null;
+
+                }
+
+                this.TZBindObj.holder.remove(); //删除holder
+                tianzi.invokedObj.draggingSetHolder = null;
+            };
+            this.rElmt.drag(this.rElmt.onDragMove,
+                this.rElmt.onDragStart,
+                this.rElmt.onDragOver);  //onDragOver 好像跟raphael.Element下的事件名重复了
 
         },
         delete : function(){
@@ -384,8 +375,7 @@ Tianzi = function(paper) {
         textStyle : {
             'font-size' : 24,
             'font-family' : '隶书', //如果没有字体怎么办？  单独写一个函数设定，也许可以下载webfont
-            //                'href' : '', href 和 target 什么区别 ？   target在svg标签里的show属性是什么意思？
-            //                'target' : '#inputWrapper',
+            'cursor':'pointer',
             // fill : '#0c967e'  //
             fill : '#f25750'  //黄色版g
         },
@@ -518,6 +508,7 @@ Tianzi.prototype = {
             }
         }
         rebuildGame({squares : startList.Squares});
+//        a = new Tianzi.Frame({gridX:2,gridY:5,length:4});
     }
 //---------------------------- for test
 
