@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<build>
+	<version>0.1.5</version>
+	<docroot>../js/</docroot>
+	<output>
+		<file name="morf">
+			<source>src/morf.js</source>
+			<source>src/morf.utils.js</source>
+			<source>src/WebkitCSSMatrix.ext.js</source>
+			<source>shifty.min.js</source>
+			<source>src/shifty.fn.scripty2.js</source>
+		</file>
+		<file name="morf.noshifty">
+			<source>src/morf.js</source>
+			<source>src/morf.utils.js</source>
+			<source>src/WebkitCSSMatrix.ext.js</source>
+			<source>src/shifty.fn.scripty2.js</source>
+		</file>
+	</output>
+</build>

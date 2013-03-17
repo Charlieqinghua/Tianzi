@@ -1,0 +1,248 @@
+
+Design Notes for Diagnil
+
+Version 3.0  ---  Released  4 August 2012  ---  Requires Python >= 2.6
+
+http://blueherons.org/diagnil/
+
+Ben Di Vito  <bdivito@cox.net>
+
+
+------------------------
+
+The information in this note is intended for software developers and
+others with an interest in various technical details of Diagnil's
+design and implementation.
+
+------------------------
+
+
+1. File formats supported by Diagnil
+
+Diagnil can open files prepared using any of these file formats:
+
+  - .puz : binary format compatible with Across Lite
+  - .jpz : zip-encoded XML format compatible with Crossword Solver
+  - .xpf : XML-based open standard for crossword distribution
+  - .ipuz : JSON-based open standard for distribution of many
+    different puzzle types
+
+Unlike many crossword solvers, Diagnil doesn't save intermediate
+puzzles in the file formats used for distribution.  Our approach
+is to use these formats only to import the definitions of crossword
+puzzles.  Once a definition has been imported, Diagnil will save the
+working puzzle using its own file format, giving it the ".dg0" file
+extension.
+
+Saving a partial solution using one of the distribution formats
+suffices for regular crosswords, but the demands of the diagramless
+domain require that we store richer, more complicated information
+about the intermediate state of a solution.  For example, we need to
+record the user's location guesses, i.e., which grid cells hold the
+answers to the clues.
+
+The .puz, .jpz, .xpf and .ipuz formats are too restrictive because
+they rely on the fixed structure of a regular crossword grid.  These
+files can store only the assignment of letters to cells, not the more
+dynamic information about a user's current guess of the grid
+structure.  We therefore introduced our own file format to save
+working puzzles.  Once a puzzle definition has been read from a {puz,
+jpz, xpf, ipuz} file, the distribution file is no longer needed.  The
+relevant puzzle definition will be saved as part of the .dg0 file
+along with the application-specific information needed by Diagnil.
+
+Moreover, Diagnil has a "clueless" mode of operation that assumes the
+user is working from a paper-based list of clues rather than an
+electronically distributed puzzle file.  In this case, we need to save
+only a subset of the information normally maintained for a "clueful"
+mode puzzle.  This feature was another driver in the decision to use
+an application-specific file format.
+
+A .dg0 file consists of a single line of ASCII text containing the
+software version number followed by a binary encoding of selected
+Python data objects used internally by Diagnil.  Python's "pickle"
+library is used to serialize the objects and write the encoded result
+to .dg0 files.  The main class serialized is called PermState:
+
+class PermState(object):
+    def __init__(self):
+        self.nums    = [[],[]]    # dir -> sorted list of word numbers
+        self.words   = [{},{}]    # dir -> {num -> word string (in listbox)}
+        self.grid_id = [{},{}]    # dir -> {num -> grid id}
+        self.posns   = []         # grid,dir -> {num -> (row,col)}
+        self.blocks  = []         # grid -> {(row,col) -> 1}
+        self.final   = ()         # finalization status (new in 1.0)
+        self.size_symm = ()       # size and symmetry attributes (new in 1.3)
+        self.puz_defn = None      # .puz/.xpf/.ipuz file info (new in 2.0)
+        self.alt_words = [{},{}]  # dir -> {num -> words string} (new in 2.3)
+	self.revealed = 0         # flag indicating if solution was revealed
+        self.solv_time = 0        # solving time (seconds) (new in 3.0)
+
+Except for the puz_defn field, the values of these attributes are
+simple Python data structures involving lists, tuples and
+dictionaries.  The field 'nums' records the word numbers of those
+words (answers) already entered by the user, while field 'words'
+records their text values.  In these objects, 'dir' is the direction
+(0: across, 1: down) and 'num' is the word number in integer form.
+
+The field 'grid_id' indicates on which of several grids a word is
+currently pasted, while 'posns' gives its starting cell.  The row, col
+values are zero-based indices.  User-added blocks are stored in the
+field 'blocks'; automatically added end blocks are implicit from a
+word's position.  The 'alt_words' field is similar to 'words'; it
+records comma-separated alternative answers as strings.
+
+Finalization information appears in the tuple 'final'.  It's either
+empty () to indicate an incomplete puzzle or has the value
+(top_row, left_col, cur_blocks) to save the upper left corner
+and positions of blocks.  This data is needed for state restoration
+during undo operations.
+
+A second tuple (use_size, apply_symm, symm_type, width, height) is
+saved in the field 'size_symm'.  It's associated with the features for
+declaring a puzzle's size and symmetry attributes.  The first two are
+flags indicating whether the size and symmetry features are enabled.
+The third is a string giving the symmetry type (e.g., 'rot'), and the
+last two contain the declared puzzle width and height.
+
+Object instances of the Python class PuzzleDefn appear in the
+'puz_defn' field of PermState.  This object records the relevant
+information extracted from the .puz, .jpz, .xpf and .ipuz file
+formats.  Its attributes are as follows.
+
+#     format_type: string                    puz, jpz, xpf, ipuz, scanned
+#     width, height: int
+#     nums:  dir -> [num,...]                across, down word numbers
+#     clues: dir -> [clue,...]               across, down clue lists
+#     soln_grid:  [letter-row,...]           solution letters
+#     soln_cksum: int                        solution checksum
+#     soln_flags: int                        nonzero if solution locked
+#     soln_words: dir -> {num -> word}       solution words
+#     soln_posns: dir -> {num -> (row, col)} solution positions
+#     title, author, copyright: string
+#     notes: string                          optional
+#     symmetry_type: string
+
+The fields format_type, width, height, nums and clues should be
+self-explanatory.  Each letter-row in field 'soln_grid' is a string
+such as "###PLUTO###", where the letters are the correct solution
+letters and the '#' characters represent blocks.  The 'soln_cksum'
+field contains a checksum value for .puz files, which is used to
+handle the locked (scrambled) solution feature.  The 'soln_flags'
+value is nonzero if the puzzle's solution is locked.
+
+The fields 'soln_words' and 'soln_posns' are similar to 'words' and
+'posns' for PermState, except they describe the puzzle author's
+solution rather than the user's guesses.  The remaining values
+(title, author, copyright, notes, symmetry_type) are strings
+whose meaning is self-explanatory.
+
+There are a few optional fields that arise from .jpz, .xpf and .ipuz
+files.  These include 'editor', 'publisher' and 'date'.  In .ipuz
+files, the field 'black' can appear with a value such as "#" to
+specify the character used for black squares (blocks) in the solution
+grid.  The optional field 'puzzle_type' can have values such as
+'Diagramless' and 'Regular'.
+
+In the case of the ipuz format, there are additional fields that
+haven't been implemented.  Future versions of Diagnil might
+incorporate some of these into the PuzzleDefn class.
+
+Diagnil can now export .dg0 files to a JSON-based notation for
+documentation purposes.  To invoke this feature, first open a .dg0
+file in Diagnil.  Type Shift-F4 or Control-F4 (not all platforms
+support both of these key combinations).  A file selection dialog will
+appear to let you edit or enter the desired file name for exporting.
+As an example, the following is the output produced for the practice
+puzzle distributed with Diagnil.
+
+----------------------
+
+Practice-ipuz.json:
+
+{
+"alt_words":  [{}, {}] ,
+"blocks":  [{}, {}, {}, {}, {}] ,
+"final":  [] ,
+"grid_id":  [{"1": 0, "4": 0, "6": 0, "7": 0, "8": 0, "12": 0, "13": 0,
+ "14": 0, "15": 0, "16": 0, "17": 0, "18": 0, "20": 0, "21": 0, "23": 0,
+ "24": 0}, {"1": 0, "2": 0, "3": 0, "4": 0, "5": 0, "6": 0, "7": 0, "9": 0,
+ "10": 0, "11": 0, "12": 0, "15": 0, "17": 0, "19": 0, "20": 0, "22": 0}] ,
+"nums":  [[1, 4, 6, 7, 8, 12, 13, 14, 15, 16, 17, 18, 20, 21, 23, 24],
+ [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 15, 17, 19, 20, 22]] ,
+"posns":  [[{"1": [0, 4], "4": [1, 3], "6": [2, 2], "7": [3, 1], "8": [3, 7],
+ "12": [4, 0], "13": [4, 8], "14": [5, 0], "15": [5, 7], "16": [6, 0],
+ "17": [6, 6], "18": [7, 0], "20": [7, 5], "21": [8, 3], "23": [9, 3],
+ "24": [10, 4]}, {"1": [0, 4], "2": [0, 5], "3": [0, 6], "4": [1, 3],
+ "5": [1, 7], "6": [2, 2], "7": [3, 1], "9": [3, 8], "10": [3, 9],
+ "11": [3, 10], "12": [4, 0], "15": [5, 7], "17": [6, 6], "19": [7, 3],
+ "20": [7, 5], "22": [8, 4]}],
+ [{}, {}], [{}, {}], [{}, {}], [{}, {}]] ,
+
+"puz_defn": {
+"author":  "Ben Di Vito" ,
+"black":  "#" ,
+"clues":  [["Breakfast food", "Demoted planet", "Milk shake",
+ "Francophone capital", "Portal", "Monica of tennis", "Half an African fly",
+ "Author of Exodus", "Not that", "And so on", "Bed linen",
+ "\"With this ring, I ___ wed\"", "Gather cloth", "Long-snouted ungulates",
+ "Prize", "Before"],
+ ["Island for immigrants", "Entrails",
+ "Merged with Bell Atlantic", "Peels", "Strange", "Ill will",
+ "City in western Australia", "\"Do unto ___ ...\"", "Type of willow",
+ "Repose", "Ovine fat", "Hot corner", "British county", "Greek letter",
+ "Train with a boxer", "Reverance or wonder"]] ,
+"copyright":  "None" ,
+"date":  "05/08/2010" ,
+"editor":  "" ,
+"format_type":  "ipuz" ,
+"height":  11 ,
+"notes":  "This diagramless puzzle is 11x11 and has standard rotational
+ symmetry. The first word starts in row 1, column 5." ,
+"nums":  [[1, 4, 6, 7, 8, 12, 13, 14, 15, 16, 17, 18, 20, 21, 23, 24],
+ [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 15, 17, 19, 20, 22]] ,
+"publisher":  "" ,
+"puzzle_type":  "Diagramless" ,
+"soln_cksum":  0 ,
+"soln_flags":  0 ,
+"soln_grid":  ["####EGG####", "###PLUTO###", "##MALTED###", "#PARIS#DOOR",
+ "SELES###TSE", "URIS###THIS", "ETC###SHEET", "THEE#SHIRR#", "###TAPIRS##",
+ "###AWARD###", "####ERE####"] ,
+"soln_posns":  [{"1": [0, 4], "4": [1, 3], "6": [2, 2], "7": [3, 1],
+ "8": [3, 7], "12": [4, 0], "13": [4, 8], "14": [5, 0], "15": [5, 7],
+ "16": [6, 0], "17": [6, 6], "18": [7, 0], "20": [7, 5], "21": [8, 3],
+ "23": [9, 3], "24": [10, 4]},
+ {"1": [0, 4], "2": [0, 5], "3": [0, 6], "4": [1, 3], "5": [1, 7],
+ "6": [2, 2], "7": [3, 1], "9": [3, 8], "10": [3, 9], "11": [3, 10],
+ "12": [4, 0], "15": [5, 7], "17": [6, 6], "19": [7, 3], "20": [7, 5],
+ "22": [8, 4]}] ,
+"soln_words":  [{"1": "EGG", "4": "PLUTO", "6": "MALTED", "7": "PARIS",
+ "8": "DOOR", "12": "SELES", "13": "TSE", "14": "URIS", "15": "THIS",
+ "16": "ETC", "17": "SHEET", "18": "THEE", "20": "SHIRR", "21": "TAPIRS",
+ "23": "AWARD", "24": "ERE"},
+ {"1": "ELLIS", "2": "GUTS", "3": "GTE", "4": "PARES", "5": "ODD",
+ "6": "MALICE", "7": "PERTH", "9": "OTHERS", "10": "OSIER", "11": "REST",
+ "12": "SUET", "15": "THIRD", "17": "SHIRE", "19": "ETA", "20": "SPAR",
+ "22": "AWE"}] ,
+"symmetry_type":  "rot" ,
+"title":  "Diagramless Potpourri (Practice Puzzle for Diagnil)" ,
+"width":  11 } ,
+
+"revealed":  1 ,
+"size_symm":  [1, 1, "rot", 11, 11] ,
+"solv_time": 0 ,
+"version":  "2.4" ,
+"words":  [{"1": "egg", "4": "pluto", "6": "malted", "7": "paris",
+ "8": "door", "12": "seles", "13": "tse", "14": "uris", "15": "this",
+ "16": "etc", "17": "sheet", "18": "thee", "20": "shirr", "21": "tapirs",
+ "23": "award", "24": "ere"},
+ {"1": "ellis", "2": "guts", "3": "gte", "4": "pares", "5": "odd",
+ "6": "malice", "7": "perth", "9": "others", "10": "osier", "11": "rest",
+ "12": "suet", "15": "third", "17": "shire", "19": "eta", "20": "spar",
+ "22": "awe"}] } 
+
+----------------------
+
+
+2. TBD
+
