@@ -1,6 +1,6 @@
 /**
  *  文字的框框
- * @param arguments
+ * @param Object:{ gridX: ,  gridY:,squareId(Optional):Number, txt(optional):String }
  * @return {*}
  */
 Tianzi.Square = Tianzi.Component.extend( {

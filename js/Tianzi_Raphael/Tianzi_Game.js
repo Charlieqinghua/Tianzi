@@ -85,6 +85,7 @@ Tianzi = function(paper) {
             );
 //            绑定给raphael的click函数
             this.rElmt.click(function(event){
+                console.log(event);
                 mouseToSvg = { offsetX:event.offsetX, offsetY:event.offsetY };
 //                console.log(mouseToSvg);
                 el.click({mouseToSvg : mouseToSvg ,eventArg : event});
@@ -195,12 +196,12 @@ Tianzi.prototype = {
                 5 : { gridX:7, gridY:3 }
             },
             Riddles : {
-                1 : { startX:3 , startY:5 , len:4 , dir:'H',desc : '这个'},
-                2 : { startX:4 , startY:5 , len:4 , dir:'V',desc : 'dd个'},
+                1 : { startX:6 , startY:5 , len:4 , dir:'H',desc : '这个'},
+                2 : { startX:4 , startY:3 , len:6, dir:'V',desc : 'dd个'},
                 3 : { startX:10 , startY:9 , len:4 , dir:'V',desc : '这个'}
             }
         }
-        rebuildGame({squares : startList.Squares ,riddles:startList.Riddles});
+        rebuildGame({Squares : startList.Squares ,Riddles:startList.Riddles});
 //        a = new Tianzi.Frame({gridX:2,gridY:5,length:4});
     }
 //---------------------------- for test
