@@ -139,6 +139,18 @@ Tianzi.prototype = {
 
 
     },
+    findElmentById : function(type,id){
+        console.log(id);
+        if(type=='square'){
+            _.each(squareBox,function(item,idx){
+//                console.log('box idx'+ idx);
+//                console.log('squareId '+ item.squareId);
+                if(id == item.squareId)
+                    return item;
+                else console.log('not find');
+            })
+        }
+    },
     /**
      *
      * Tianzi的初始化

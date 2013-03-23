@@ -20,7 +20,7 @@ Tianzi.Frame = Tianzi.Component.extend({
         x : 0,
         y : 0
     },
-    contents :{}, //包含的square
+    contents :[], //包含的square
     create : function(options){
         var el = this;
         this.rElmt = paper.rect().attr(el.rDefaults);
