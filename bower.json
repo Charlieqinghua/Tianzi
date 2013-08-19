@@ -1,3 +1,9 @@
 {
-
+	"name": "Tianzi",
+  "version": "0.0.1",
+  "dependencies": {
+		"zepto":"*",
+		"raphael": "*",
+		"underscore": "*"
+  }
 }

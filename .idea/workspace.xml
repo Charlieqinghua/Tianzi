@@ -2,484 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bc6a7e31-44cc-417a-a2e3-a891305115d2" name="Default" comment="readme&#10;">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bower.json" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/README" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/demos/asteroids/Asteroids.htm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/demos/asteroids/game.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/demos/asteroids/images/bg.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/demos/asteroids/images/sprite.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/demos/asteroids/space-blaster.mp3" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/demos/asteroids/space-blaster.wav" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/demos/connect4/Connect4.htm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/demos/connect4/connect4.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/demos/connect4/images/bg.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/demos/connect4/images/sprite.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/demos/connect4/images/win.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/demos/fruitassassin/assassin.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/demos/fruitassassin/fruitassassin.htm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/demos/fruitassassin/images/bg.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/demos/fruitassassin/images/fruit.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/demos/isometric/game.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/demos/isometric/images/sprite.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/demos/isometric/isometric.htm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/demos/rpg/game.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/demos/rpg/images/sprite.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/demos/rpg/rpg.htm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/crafty.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/jquery-1.7.2.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/kinetic-v4.2.0.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/morf-master/CHANGELOG.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/morf-master/MIT-LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/morf-master/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/morf-master/build/build" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/morf-master/build/build.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/morf-master/build/google-compiler-20100917.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/morf-master/css/demo.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/morf-master/demo.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/morf-master/jQuery_1.6.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/morf-master/js/modernizr.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/morf-master/js/morf.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/morf-master/js/morf.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/morf-master/js/morf.noshifty.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/morf-master/js/morf.noshifty.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/morf-master/js/shifty.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/morf-master/js/src/WebkitCSSMatrix.ext.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/morf-master/js/src/morf.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/morf-master/js/src/morf.utils.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/morf-master/js/src/shifty.fn.scripty2.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/《全宋词》唐圭璋编·卷一.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/《诗经》篇名与诗句.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/Crossword-master.zip" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/Diagnil-3.0-Vi7.exe" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/Diagnil-3.0/Design_notes.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/Diagnil-3.0/License.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/Diagnil-3.0/README.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/Diagnil-3.0/dg0-128.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/Diagnil-3.0/dg0-48.ico" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/Diagnil-3.0/diag_classes.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/Diagnil-3.0/diag_cmds.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/Diagnil-3.0/diag_config.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/Diagnil-3.0/diag_events.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/Diagnil-3.0/diag_globals.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/Diagnil-3.0/diag_help.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/Diagnil-3.0/diag_load.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/Diagnil-3.0/diag_messages.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/Diagnil-3.0/diag_methods.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/Diagnil-3.0/diag_multilistbox.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/Diagnil-3.0/diag_primer.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/Diagnil-3.0/diag_quick.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/Diagnil-3.0/diag_readpuz.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/Diagnil-3.0/diag_util.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/Diagnil-3.0/diag_word_grid.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/Diagnil-3.0/diagnil.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/Diagnil-3.0/diagnil.ico" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/Diagnil-3.0/diagnil.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/Diagnil-3.0/images/connected-words.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/Diagnil-3.0/images/diagonal-move.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/Diagnil-3.0/images/enter-paste.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/Diagnil-3.0/images/enter-word.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/Diagnil-3.0/images/horiz-symm.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/Diagnil-3.0/images/key-cursor.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/Diagnil-3.0/images/primer-1.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/Diagnil-3.0/images/primer-2.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/Diagnil-3.0/images/primer-3.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/Diagnil-3.0/images/primer-4.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/Diagnil-3.0/images/primer-5.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/Diagnil-3.0/images/primer-6.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/Diagnil-3.0/images/primer-7.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/Diagnil-3.0/images/primer-8.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/Diagnil-3.0/images/rot-symm.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/Diagnil-3.0/images/search.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/Diagnil-3.0/images/symm-blocks.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/Diagnil-3.0/images/vert-symm.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/Diagnil-3.0/images/wrap-after.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/Diagnil-3.0/images/wrap-before.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/Diagnil-3.0/samples/Practice-soln.dg0" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/Diagnil-3.0/samples/Practice.puz" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/Diagnil-3.0/samples/aug24.dg0" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/Diagnil-3.0/samples/aug25.dg0" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/Diagnil-3.0/samples/aug31.dg0" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/Diagnil-3.0/samples/dec1.dg0" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/Diagnil-3.0/samples/jul28.dg0" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/Diagnil-3.0/samples/nov2.dg0" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/Diagnil-3.0/samples/nov23.dg0" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/Diagnil-3.0/samples/nov24.dg0" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/Diagnil-3.0/samples/nov3.dg0" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/Diagnil-3.0/samples/oct20.dg0" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/Diagnil-3.0/samples/oct26.dg0" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/Diagnil-3.0/samples/sep8.dg0" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/Diagnil-3.0/settings_gen.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/Diagnil-3.0/settings_osx.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/Diagnil-3.0/settings_win.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/Diagnil-3.0/tile_dialogs.tcl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/.gitignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/README" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/_sources/DecodePerl/decode_crossword.pl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/_sources/JPZ2Puz/src/Convert.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/_sources/JPZ2Puz/src/ConvertUI.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/_sources/JPZ2Puz/src/LICENSE.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/_sources/JPZ2Puz/src/com/totsp/crossword/io/IO.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/_sources/JPZ2Puz/src/com/totsp/crossword/io/JPZIO.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/_sources/JPZ2Puz/src/com/totsp/crossword/puz/Box.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/_sources/JPZ2Puz/src/com/totsp/crossword/puz/Puzzle.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/_sources/PuzPy/puz.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/_sources/PuzPy/readme.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/_sources/PuzPy/testfiles/Feb0308_oddnumbering.puz" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/_sources/PuzPy/testfiles/av110622.puz" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/_sources/PuzPy/testfiles/cs080904.puz" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/_sources/PuzPy/testfiles/nyt_diagramless.puz" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/_sources/PuzPy/testfiles/nyt_locked.puz" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/_sources/PuzPy/testfiles/nyt_partlyfilled.puz" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/_sources/PuzPy/testfiles/nyt_rebus_with_notes_and_shape.puz" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/_sources/PuzPy/testfiles/nyt_sun_rebus.puz" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/_sources/PuzPy/testfiles/nyt_weekday_with_notes.puz" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/_sources/PuzPy/testfiles/nyt_with_shape.puz" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/_sources/PuzPy/testfiles/washpost.puz" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/_sources/PuzPy/testfiles/wsj110624.puz" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/_sources/PuzPy/tests.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/_sources/php-crossword-v0.5.2/COPYING" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/_sources/php-crossword-v0.5.2/ChangeLog" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/_sources/php-crossword-v0.5.2/config.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/_sources/php-crossword-v0.5.2/demo-add-words.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/_sources/php-crossword-v0.5.2/demo-client.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/_sources/php-crossword-v0.5.2/demo-user-words.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/_sources/php-crossword-v0.5.2/demo-xml.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/_sources/php-crossword-v0.5.2/demo.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/_sources/php-crossword-v0.5.2/index.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/_sources/php-crossword-v0.5.2/init.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/_sources/php-crossword-v0.5.2/lib/Snoopy.class.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/_sources/php-crossword-v0.5.2/lib/mysql.class.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/_sources/php-crossword-v0.5.2/lib/php_crossword.class.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/_sources/php-crossword-v0.5.2/lib/php_crossword_cell.class.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/_sources/php-crossword-v0.5.2/lib/php_crossword_client.class.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/_sources/php-crossword-v0.5.2/lib/php_crossword_grid.class.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/_sources/php-crossword-v0.5.2/lib/php_crossword_word.class.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/_sources/php-crossword-v0.5.2/lib/utility.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/_sources/php-crossword-v0.5.2/lib/xml.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/_sources/php-crossword-v0.5.2/sql/php-crossword.sql" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/readme.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/.htaccess" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/_old/index.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/_old/puzzles/classic120217.puz" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/_old/puzzles/cs120216.puz" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/_old/scripts/jquery.autotab-1.1b.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/.htaccess" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/cache/.htaccess" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/cache/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/config/autoload.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/config/constants.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/config/doctypes.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/config/facebook.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/config/foreign_chars.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/config/hooks.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/config/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/config/migration.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/config/mimes.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/config/profiler.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/config/routes.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/config/smileys.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/config/user_agents.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/controllers/ajax.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/controllers/auth.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/controllers/auth_other.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/controllers/cron.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/controllers/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/controllers/news.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/controllers/pages.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/controllers/puzzles.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/controllers/welcome.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/core/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/errors/error_404.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/errors/error_db.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/errors/error_general.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/errors/error_php.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/errors/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/helpers/JSON.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/helpers/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/helpers/json_helper.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/helpers/recaptcha_helper.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/hooks/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/language/english/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/language/english/tank_auth_lang.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/libraries/Gravatar.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/libraries/Lightopenid.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/libraries/Tank_auth.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/libraries/Xml.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/libraries/base_facebook.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/libraries/facebook.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/libraries/fb_ca_chain_bundle.crt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/libraries/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/libraries/phpass-0.1/PasswordHash.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/libraries/phpass-0.1/c/Makefile" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/libraries/phpass-0.1/c/crypt_private.c" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/libraries/phpass-0.1/test.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/libraries/tweet.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/logs/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/models/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/models/news_model.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/models/puzzles_model.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/models/sources_model.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/models/src_jonesin_model.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/models/tank_auth/login_attempts.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/models/tank_auth/user_autologin.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/models/tank_auth/users.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/models/user_model.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/models/user_puzzles_model.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/third_party/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/views/auth/change_email_form.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/views/auth/change_password_form.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/views/auth/forgot_password_form.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/views/auth/general_message.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/views/auth/login_form.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/views/auth/register_form.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/views/auth/reset_password_form.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/views/auth/send_again_form.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/views/auth/unregister_form.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/views/auth_other/fill_user_info.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/views/css/bootstrap.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/views/css/bootstrap_responsive.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/views/css/common.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/views/email/activate-html.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/views/email/activate-txt.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/views/email/change_email-html.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/views/email/change_email-txt.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/views/email/forgot_password-html.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/views/email/forgot_password-txt.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/views/email/reset_password-html.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/views/email/reset_password-txt.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/views/email/welcome-html.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/views/email/welcome-txt.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/views/gfc_logout.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/views/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/views/js/autotab.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/views/js/bootstrap.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/views/js/crosswordview.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/views/js/fittext.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/views/js/jquery.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/views/news/create.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/views/news/index.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/views/news/success.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/views/news/view.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/views/pages/about.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/views/pages/home.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/views/puzzles/index.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/views/puzzles/view.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/views/templates/footer.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/views/templates/header.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/application/views/welcome_message.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/captcha/fonts/.htaccess" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/captcha/fonts/1.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/captcha/fonts/2.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/captcha/fonts/3.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/captcha/fonts/4.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/captcha/fonts/5.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/css/bootstrap-responsive.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/css/bootstrap.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/css/common.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/favicon.ico" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/img/glyphicons-halflings-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/img/glyphicons-halflings.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/img/google_connect_button.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/img/twitter_login_button.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/img/yahoo_openid_connect.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/index.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/js/bootstrap.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/js/bootstrap.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/js/jquery.autotab-1.1b.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/js/jquery.fittext.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/puzzles/avclub/120321-av120321.puz" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/puzzles/inkwell/120316-vv120316.puz" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/puzzles/iswear/120316-DR120316.puz" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/puzzles/lat/120316-lat120316.puz" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/puzzles/lat/120319-lat120319.puz" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/puzzles/lat/120321-lat120321.puz" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/puzzles/nytclassic/120319-classic.puz" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/puzzles/tmp/temp.jpz" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/puzzles/wapo/120316-cs120316.jpz" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/puzzles/wapo/120319-cs120319.jpz" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/puzzles/wapo/120321-cs120321.jpz" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/.htaccess" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/core/Benchmark.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/core/CodeIgniter.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/core/Common.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/core/Config.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/core/Controller.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/core/Exceptions.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/core/Hooks.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/core/Input.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/core/Lang.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/core/Loader.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/core/Model.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/core/Output.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/core/Router.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/core/Security.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/core/URI.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/core/Utf8.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/core/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/database/DB.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/database/DB_active_rec.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/database/DB_cache.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/database/DB_driver.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/database/DB_forge.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/database/DB_result.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/database/DB_utility.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/database/drivers/cubrid/cubrid_driver.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/database/drivers/cubrid/cubrid_forge.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/database/drivers/cubrid/cubrid_result.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/database/drivers/cubrid/cubrid_utility.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/database/drivers/cubrid/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/database/drivers/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/database/drivers/mssql/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/database/drivers/mssql/mssql_driver.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/database/drivers/mssql/mssql_forge.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/database/drivers/mssql/mssql_result.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/database/drivers/mssql/mssql_utility.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/database/drivers/mysql/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/database/drivers/mysql/mysql_driver.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/database/drivers/mysql/mysql_forge.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/database/drivers/mysql/mysql_result.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/database/drivers/mysql/mysql_utility.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/database/drivers/mysqli/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/database/drivers/mysqli/mysqli_driver.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/database/drivers/mysqli/mysqli_forge.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/database/drivers/mysqli/mysqli_result.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/database/drivers/mysqli/mysqli_utility.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/database/drivers/oci8/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/database/drivers/oci8/oci8_driver.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/database/drivers/oci8/oci8_forge.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/database/drivers/oci8/oci8_result.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/database/drivers/oci8/oci8_utility.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/database/drivers/odbc/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/database/drivers/odbc/odbc_driver.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/database/drivers/odbc/odbc_forge.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/database/drivers/odbc/odbc_result.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/database/drivers/odbc/odbc_utility.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/database/drivers/pdo/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/database/drivers/pdo/pdo_driver.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/database/drivers/pdo/pdo_forge.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/database/drivers/pdo/pdo_result.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/database/drivers/pdo/pdo_utility.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/database/drivers/postgre/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/database/drivers/postgre/postgre_driver.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/database/drivers/postgre/postgre_forge.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/database/drivers/postgre/postgre_result.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/database/drivers/postgre/postgre_utility.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/database/drivers/sqlite/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/database/drivers/sqlite/sqlite_driver.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/database/drivers/sqlite/sqlite_forge.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/database/drivers/sqlite/sqlite_result.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/database/drivers/sqlite/sqlite_utility.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/database/drivers/sqlsrv/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/database/drivers/sqlsrv/sqlsrv_driver.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/database/drivers/sqlsrv/sqlsrv_forge.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/database/drivers/sqlsrv/sqlsrv_result.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/database/drivers/sqlsrv/sqlsrv_utility.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/database/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/fonts/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/fonts/texb.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/helpers/array_helper.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/helpers/captcha_helper.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/helpers/cookie_helper.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/helpers/date_helper.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/helpers/directory_helper.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/helpers/download_helper.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/helpers/email_helper.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/helpers/file_helper.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/helpers/form_helper.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/helpers/html_helper.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/helpers/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/helpers/inflector_helper.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/helpers/language_helper.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/helpers/number_helper.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/helpers/path_helper.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/helpers/security_helper.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/helpers/smiley_helper.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/helpers/string_helper.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/helpers/text_helper.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/helpers/typography_helper.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/helpers/url_helper.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/helpers/xml_helper.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/language/english/calendar_lang.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/language/english/date_lang.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/language/english/db_lang.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/language/english/email_lang.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/language/english/form_validation_lang.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/language/english/ftp_lang.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/language/english/imglib_lang.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/language/english/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/language/english/migration_lang.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/language/english/number_lang.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/language/english/profiler_lang.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/language/english/unit_test_lang.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/language/english/upload_lang.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/language/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/libraries/Cache/Cache.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/libraries/Cache/drivers/Cache_apc.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/libraries/Cache/drivers/Cache_dummy.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/libraries/Cache/drivers/Cache_file.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/libraries/Cache/drivers/Cache_memcached.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/libraries/Calendar.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/libraries/Cart.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/libraries/Driver.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/libraries/Email.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/libraries/Encrypt.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/libraries/Form_validation.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/libraries/Ftp.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/libraries/Image_lib.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/libraries/Javascript.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/libraries/Log.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/libraries/Migration.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/libraries/Pagination.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/libraries/Parser.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/libraries/Profiler.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/libraries/Session.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/libraries/Sha1.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/libraries/Table.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/libraries/Trackback.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/libraries/Typography.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/libraries/Unit_test.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/libraries/Upload.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/libraries/User_agent.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/libraries/Xmlrpc.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/libraries/Xmlrpcs.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/libraries/Zip.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/libraries/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/system/libraries/javascript/Jquery.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/大学诗词散曲名.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/常用文言文词库.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/杜甫诗词词库.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/楚辞.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/词库/《全宋词》唐圭璋编·卷一.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/词库/《诗经》篇名与诗句.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/词库/大学诗词散曲名.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/词库/常用文言文词库.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/词库/杜甫诗词词库.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/资料/词库/楚辞.txt" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Tianzi_Raphael.html" afterPath="$PROJECT_DIR$/app/Tianzi_Raphael.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/Simple JS Inheritence.js" afterPath="$PROJECT_DIR$/app/js/Simple JS Inheritence.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/Tianzi_Raphael/TianziUtil.js" afterPath="$PROJECT_DIR$/app/js/Tianzi_Raphael/TianziUtil.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/Tianzi_Raphael/Tianzi_Game.js" afterPath="$PROJECT_DIR$/app/js/Tianzi_Raphael/Tianzi_Game.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/Tianzi_Raphael/frame.js" afterPath="$PROJECT_DIR$/app/js/Tianzi_Raphael/frame.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/Tianzi_Raphael/square.js" afterPath="$PROJECT_DIR$/app/js/Tianzi_Raphael/square.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/Tianzi_Raphael/text.js" afterPath="$PROJECT_DIR$/app/js/Tianzi_Raphael/text.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/raphael_cm.js" afterPath="$PROJECT_DIR$/app/js/raphael_cm.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/raphaelscape_game.js" afterPath="$PROJECT_DIR$/app/js/raphaelscape_game.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/sea.js" afterPath="$PROJECT_DIR$/app/js/sea.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/underscore.js" afterPath="$PROJECT_DIR$/app/js/underscore.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/zepto.js" afterPath="$PROJECT_DIR$/app/js/zepto.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/raphael_game_test_sea_failed.js" afterPath="$PROJECT_DIR$/app/raphael_game_test_sea_failed.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/captcha/fonts/index.html" afterPath="$PROJECT_DIR$/Gruntfile.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/captcha/index.html" afterPath="$PROJECT_DIR$/index.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/资料/填字游戏/HTML-Crosswords-master/www/favicon.gif" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gruntfile.js" afterPath="$PROJECT_DIR$/Gruntfile.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower.json" afterPath="$PROJECT_DIR$/bower.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
     </list>
     <ignored path="填字控.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="bc6a7e31-44cc-417a-a2e3-a891305115d2" time="1376903251998" ignored="false" />
-    <file path="/package.json" changelist="bc6a7e31-44cc-417a-a2e3-a891305115d2" time="1376904203528" ignored="false" />
+    <file path="/package.json" changelist="bc6a7e31-44cc-417a-a2e3-a891305115d2" time="1376904991362" ignored="false" />
+    <file path="/Gruntfile.js" changelist="bc6a7e31-44cc-417a-a2e3-a891305115d2" time="1376904612602" ignored="false" />
+    <file path="/bower.json" changelist="bc6a7e31-44cc-417a-a2e3-a891305115d2" time="1376904915086" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -499,28 +31,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Tianzi_Raphael.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Tianzi_Raphael.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="18" selection-start="1616" selection-end="1616" vertical-scroll-proportion="-3.2">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Gruntfile.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Gruntfile.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="8" column="42" selection-start="153" selection-end="153" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -529,16 +43,7 @@
       <file leaf-file-name="bower.json" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bower.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="48" selection-start="4" selection-end="4" vertical-scroll-proportion="-1.0666667">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TianziUtil.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/js/Tianzi_Raphael/TianziUtil.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="113" column="13" selection-start="3598" selection-end="3598" vertical-scroll-proportion="0.0">
+            <state line="6" column="21" selection-start="115" selection-end="115" vertical-scroll-proportion="-3.2">
               <folding />
             </state>
           </provider>
@@ -547,7 +52,7 @@
       <file leaf-file-name="Tianzi_Game.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/js/Tianzi_Raphael/Tianzi_Game.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="99" column="32" selection-start="3152" selection-end="3152" vertical-scroll-proportion="0.0">
+            <state line="20" column="48" selection-start="836" selection-end="836" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -556,7 +61,7 @@
       <file leaf-file-name="package.json" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="21" selection-start="113" selection-end="113" vertical-scroll-proportion="0.18079096">
+            <state line="6" column="14" selection-start="114" selection-end="114" vertical-scroll-proportion="0.17266187">
               <folding />
             </state>
           </provider>
@@ -566,15 +71,6 @@
         <entry file="file://$PROJECT_DIR$/app/js/Tianzi_Raphael/square.js">
           <provider selected="true" editor-type-id="text-editor">
             <state line="7" column="14" selection-start="194" selection-end="194" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Simple JS Inheritence.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/js/Simple JS Inheritence.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="0" selection-start="675" selection-end="675" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -600,7 +96,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/js/Tianzi_Raphael/init.js" />
         <option value="$PROJECT_DIR$/raphael_game_test_sea_fail.js" />
         <option value="$PROJECT_DIR$/js/raphael_cm.js" />
         <option value="$PROJECT_DIR$/js/Simple JS Inheritence.js" />
@@ -614,8 +109,9 @@
         <option value="$PROJECT_DIR$/js/TianziUtil.js" />
         <option value="$PROJECT_DIR$/js/Tianzi_Raphael/Tianzi_Game.js" />
         <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/Gruntfile.js" />
         <option value="$PROJECT_DIR$/bower.json" />
+        <option value="$PROJECT_DIR$/package.json" />
       </list>
     </option>
   </component>
@@ -885,9 +381,9 @@
       <window_info id="Changes" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.33445945" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32956383" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27272728" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20459953" sideWeight="0.45779222" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26883426" sideWeight="0.45779222" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.6537162" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20459953" sideWeight="0.5422078" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26883426" sideWeight="0.5422078" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3990307" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27045456" sideWeight="0.5589661" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3293919" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -988,13 +484,6 @@
         <state line="64" column="0" selection-start="1757" selection-end="1757" vertical-scroll-proportion="0.78571427" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/js/Tianzi_Raphael/TianziUtil.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="113" column="13" selection-start="3598" selection-end="3598" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/js/underscore.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-13.918004">
@@ -1032,30 +521,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Tianzi_Raphael.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="18" selection-start="1616" selection-end="1616" vertical-scroll-proportion="-3.2">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="29" selection-start="39" selection-end="39" vertical-scroll-proportion="0.0855615">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Gruntfile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -1067,23 +535,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bower.json">
+    <entry file="file://$PROJECT_DIR$/app/js/Tianzi_Raphael/TianziUtil.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="48" selection-start="4" selection-end="4" vertical-scroll-proportion="-1.0666667">
+        <state line="113" column="13" selection-start="3598" selection-end="3598" vertical-scroll-proportion="0.02919708">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/js/Tianzi_Raphael/Tianzi_Game.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="99" column="32" selection-start="3152" selection-end="3152" vertical-scroll-proportion="0.0">
+        <state line="20" column="48" selection-start="836" selection-end="836" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bower.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="21" selection-start="115" selection-end="115" vertical-scroll-proportion="-3.2">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Tianzi_Raphael.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="18" selection-start="1616" selection-end="1616" vertical-scroll-proportion="0.17679559">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gruntfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="42" selection-start="153" selection-end="153" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="21" selection-start="113" selection-end="113" vertical-scroll-proportion="0.18079096">
+        <state line="6" column="14" selection-start="114" selection-end="114" vertical-scroll-proportion="0.17266187">
           <folding />
         </state>
       </provider>
