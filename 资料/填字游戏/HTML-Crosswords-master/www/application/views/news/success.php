@@ -1,1 +1,0 @@
-Success! <a href="/index.php/news">Go check out your news!</a>
