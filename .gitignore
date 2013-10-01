@@ -20,3 +20,4 @@ session.vim
 
 # ===
 *.map
+app/src/coffee-files/*.js
