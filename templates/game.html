@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <title>Tianzi Game - developing</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+  <link rel="stylesheet" href="/media/css/game.css" />
+  <script type="text/javascript" src="/app/lib/raphael.js"></script>
+  <script type="text/javascript" src="/app/lib/sea.js"></script>
+  <!--<script type="text/javascript" src="/app/lib/underscore.js"></script>-->
+
+  <!--[if lt IE 9]>
+
+  <![endif]-->
+  <!--<script src="http://cdnmaster.com/pub/iehack/html5.js"></script>-->
+
+</head>
+<body>
+
+  <div id="page-wrapper">
+    <header>
+      <h2>I'm the header.</h2>
+
+    </header>
+     <div id="content">
+      {% block board %}
+          {% include "board.html" %}
+      {% endblock %}
+      </div>
+
+  </div>
+
+  <div id="page_mask" style="background:rgba(125,125,125,.5);z-index:10;position:absolute;width:100%;top:0;height:100%;display:none">
+
+  </div>
+  <div id="no-data" style='text-align:center;line-height:16px;font-size:16px;padding:20px 0;display:none'><i class='icon-frown'></i>暂无数据</div>
+
+  <script type="text/javascript" src="/app/js/init.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,2 @@
+define "basic",(require)->
+  true
