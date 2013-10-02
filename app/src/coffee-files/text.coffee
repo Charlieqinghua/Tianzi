@@ -1,8 +1,6 @@
 define (require, exports, module)->
-  console.log("basic")
-  class Basic
+  class Text extends Basic
     constructor:()->
       true
-    id: 0
-  module.exports = Basic
+  module.exports = Text
   true

@@ -1274,3 +1274,11 @@
   });
 
 }).call(this);
+if(typeof define == "function"){
+  //console.log("function")
+  //todo still not working ...
+  define("underscore",[],function(){
+    console.log(_)
+    return _;
+  })
+}

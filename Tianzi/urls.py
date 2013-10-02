@@ -20,9 +20,9 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
 
 
-    url(r'^game/', include(game.urls)),
+    url(r'^game/$', include(game.urls)),
     #app js file
-    url(r'^app/(?P<path>.*)$',
+    url(r'^game/app/(?P<path>.*)$',
         'django.views.static.serve',
        {'document_root': "/home/admaster/project/mydemos/Tianzi/app/"}
     ),

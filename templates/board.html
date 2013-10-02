@@ -1,1 +1,10 @@
-<h3>I'm the board</h3>
+{% verbatim %}
+
+<div id="ng-app" ng-app="tianziMain" >
+  <div ng-controller="TZ.BoardCtrl">
+    <h3>I'm the board. Ticking {{getTime();}}</h3>
+    <div id="svgWrapper"></div>
+  </div>
+</div>
+
+{% endverbatim %}

@@ -1586,4 +1586,13 @@ window.Zepto = Zepto
   }
 
   testEl = null
-})(Zepto)
+})(Zepto);
+if(typeof define == "function"){
+  define("lib/zepto",[],function(require, exports, module){
+    //console.log($);
+    exports = $;
+  })
+
+}else{
+  //console.log("else")
+}

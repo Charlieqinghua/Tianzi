@@ -1,17 +1,36 @@
-define("game",
-    [
-      "angularjs",
-      "underscore",
-      "tianzi_game_main"
-    ],
-    function(require) {
+define(null,["zepto","angularjs","src/tianzi_main"],function(require,exports,module) {
 
-  var Angular = require('angularjs');
-//  var Underscore = require('underscore');
-//  var zepto = require('zepto');
+    var A = require('angularjs');
+    var U = require('underscore');
+    var zepto = require("zepto");
+
+    var Tianzi = require.async("tianzi_game_main");
+
+  //  //angular
+    var ngTianziMain = angular.module("tianziMain",[]);
+    //  ngTianziMain.config()
+
+    var BoardCtrl = function($scope, $routeParams){
+
+      $scope.getTime = function(){
+        return new Date().toString();
+      }
 
 
-  console.log("game!");
+    }
 
+    window.TZ = {};
+    // controllers
+
+    window.TZ.BoardCtrl = BoardCtrl; //ugly hack...
+
+
+
+    $(document).ready(function(){
+      TZ.paper = Raphael('svgWrapper',800,600);
+    })
 });
+
+
+
 
