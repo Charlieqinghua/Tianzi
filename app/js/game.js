@@ -1,7 +1,7 @@
 define(null,["zepto","angularjs","src/tianzi_main"],function(require,exports,module) {
 
   var A = require('angularjs');
-  var U = require('underscore');
+//  var U = require('underscore');
   var zepto = require("zepto");
 
   var Tianzi = require.async("tianzi_game_main");
@@ -9,6 +9,8 @@ define(null,["zepto","angularjs","src/tianzi_main"],function(require,exports,mod
   //global settings
   window.TZ = {};
   BOARD_SIZE = {width : 600 , height : 600 , xGrids : 18 ,yGrids : 18, gridWidth : 40};
+  TZ.squareBox = []
+  TZ.frameBox = []
 
 
 

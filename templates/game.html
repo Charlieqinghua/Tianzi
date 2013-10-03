@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="/media/css/game.css" />
   <script type="text/javascript" src="/game/app/lib/raphael.js"></script>
   <script type="text/javascript" src="/game/app/lib/angular.min.js"></script>
+  <script type="text/javascript" src="/game/app/lib/underscore.js"></script>
   <script type="text/javascript" src="/game/app/lib/sea.js"></script>
 
   <!--[if lt IE 9]>
@@ -37,17 +38,28 @@
       </div>
 
     {% endverbatim %}
-    <div id="debugWrapper">
+    <div id="debugWrapper" ng-controller="TZ.DebugCtrl">
         <input type="text" id="debugInput" placeholder="debugInput">
         <button id="btnPrintObjInfo" onclick="window.debug.printObjInfo({});">打印对象信息</button>
-        <button onclick="saveGameData();">保存游戏信息</button>
+        <button ng-click="debug.saveData" onclick="saveGameData();">保存游戏信息</button>
         <button onclick="loadGameData();">读取游戏信息</button>
         <button onclick="resetGame();">重置游戏</button>
         <div id="" class="">
             <input type="text"  id='scaleInput' placeholder="Input the scale">
             <button onclick="scaleGame(document.getElementById('scaleInput').value, paper);">Scale</button>
         </div><!-- / -->
-        <div class="output"></div>
+        <div class="output" id="output-panel">
+          <div class="square-cnt">
+            <ul>
+              <li ng-repeat="square in TZ.squareBox | filter: "></li>
+            </ul>
+          </div>
+          <div class="square-cnt">
+            <ul class="text-cnt">
+              <li ng-repeat="square in TZ.textBox"></li>
+            </ul>
+          </div>
+        </div>
     </div>
     <div id="inputWrapper">
         <input type="text" placeholder="输入文字" id="inputBox">
