@@ -1,7 +1,8 @@
 define (require,exports,module)->
-  class Board
-    constructor:
-      true
+  Basic = require("coreDir/basic");
+  class Board extends Basic
+    constructor:()->
+      #@__proto__.constructor(arguments)
 
     rDefaults:
       # #蓝黄
@@ -13,33 +14,35 @@ define (require,exports,module)->
       stroke:'none'
 
     matrix : []
-    offsetToSvg :{x:20,y:20}
+
     refresh : (atbt,options)->
       #以后扩写时候可以甄别atbt
 
-      this.matrix = []
+      @matrix = []
 
 
     create : ()->
       el = @
-      this.refresh()
-      this.rElmt = paper.set()
-      this.rElmt.TZBindObj = this
-      this.rElmt.push(
-          paper.rect(this.offsetToSvg.x,this.offsetToSvg.y,BOARD_SIZE.xGrids * BOARD_SIZE.gridWidth,BOARD_SIZE.yGrids * BOARD_SIZE.gridWidth).attr(this.rDefaults)
+      @refresh()
+      @rElmt = @rPaper.set()
+      @rElmt.TZBindObj = this
+      @rElmt.push(
+          @rPaper.rect(@offsetToSvg.x,@offsetToSvg.y,BOARD_SIZE.xGrids * BOARD_SIZE.gridWidth,BOARD_SIZE.yGrids * BOARD_SIZE.gridWidth).attr(@rDefaults)
       )
 #            绑定给raphael的click函数
-      this.rElmt.click((event)->
-        console.log(event)
-        mouseToSvg =  offsetX:event.offsetX, offsetY:event.offsetY
-#                console.log(mouseToSvg)
-        el.click(mouseToSvg : mouseToSvg ,eventArg : event)
-      )
+#      @rElmt.click((event)->
+#        console.log(event)
+#        mouseToSvg =  offsetX:event.offsetX, offsetY:event.offsetY
+##                console.log(mouseToSvg)
+#        el.click(mouseToSvg : mouseToSvg ,eventArg : event)
+#      )
+#
+#    click : (args)->
+#      point = args.mouseToSvg
+#
+#      if args.eventArg.shiftKey == true
+#        #console.log('shift')
+#        svgPos = getPointInGrid(x:point.offsetX, y:point.offsetY)
+#        #tempSqr=new Tianzi.Square(svgPos)
 
-    click : (args)->
-      point = args.mouseToSvg
-
-      if args.eventArg.shiftKey == true
-        #console.log('shift')
-        svgPos = getPointInGrid(x:point.offsetX, y:point.offsetY)
-        #tempSqr=new Tianzi.Square(svgPos)
+  module.exports = Board

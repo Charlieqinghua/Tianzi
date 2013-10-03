@@ -6,6 +6,7 @@ bower_components/
 
 .directory/
 *.swp
+*.swo
 *.*~
 *.pyc
 
@@ -21,3 +22,4 @@ session.vim
 # ===
 *.map
 app/src/coffee-files/*.js
+app/src/tianzi_main.js

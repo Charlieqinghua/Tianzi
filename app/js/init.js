@@ -16,6 +16,6 @@ seajs.config({
 
 // 加载入口模块
 seajs.use("js/game.js",function(){
-  console.log(seajs)    ;
-  console.log(seajs.cache)
+//  console.log(seajs)    ;
+//  console.log(seajs.cache)
 });

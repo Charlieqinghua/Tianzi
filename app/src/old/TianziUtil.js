@@ -18,7 +18,7 @@ debug.prototype = {
         window.debugList = {
             squareBox : squareBox,
             textBox : textBox
-        }//TODO 需要设定么？
+        }
 //        {
         if(args.spercific){
             _.map(args.spercific,function(val,key){
@@ -41,7 +41,6 @@ var todoList = {
 }
 
 function saveGameData(){
-    //todo 使用localstorage存储json的缺点在于  如果json对象很大， 那么每次读写都要用JSON来在字符和对象间转换 用WebSql会好点么？
     var Squares = {};
     var Texts = {};
     localStorage['Squares'] = null;

@@ -1,7 +1,9 @@
 define (require, exports, module)->
   Basic = require("coreDir/basic");
-  class Text extends Basic
+  class Square extends Basic
     constructor:()->
       true
-  module.exports = Text
+
+
+  module.exports = Square
   true
