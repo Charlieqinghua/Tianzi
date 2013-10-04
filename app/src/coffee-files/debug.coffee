@@ -1,16 +1,10 @@
 define (require, exports, module)->
   Frame = require("coreDir/frame")
   Square = require("coreDir/square")
-  class Debug
-    constructor:()->
-      window.debug = @
-      true
+  Debug =
     printObjInfo:()->
       if( document.getElementById("debugInput").value != ''  )
         console.log("debug what?")
-#      window.debugList =
-#        squareBox : squareBox
-#        textBox : textBox
 
       if(args.spercific)
         _.each(args.spercific,(val,key)->
@@ -23,25 +17,33 @@ define (require, exports, module)->
           console.log(val);
         )
     saveData: ()->
-      @
+      true
 
-    # ng controller
-    DebugCtrl = ($scope, $routeParams, $http)->
+  window.debug = Debug
+
+  # ng controller
+  DebugCtrl = ($scope, $routeParams, $http)->
+    $s = $scope
+    $scope.square_box = TZ.squareBox
+    $scope.frame_box = TZ.frameBox
+    $scope.title = "Box panel"
+    window.debug.debugScope = $scope
+
+    $scope.refresh = ()->
+      console.log("refresh")
+      # can't we just trigger a 'change' event?
       $scope.square_box = TZ.squareBox
       $scope.frame_box = TZ.frameBox
-      $scope.title = "Box panel"
 
-      $scope.refresh = ()->
-        console.log("refresh")
-        $scope.square_box = TZ.squareBox
-        return $scope.title
-      $scope.squareOrder= ()->
-        console.log("order square")
+      @
+    $scope.squareOrder= ()->
+      ### how to get this work? ###
+      console.log("order square")
 
-    window.TZ.DebugCtrl = DebugCtrl
 
-  debug = new Debug
-  window.debug=debug
+  window.TZ.DebugCtrl = DebugCtrl
+
+
 
   module.exports = Debug
   return module.exports

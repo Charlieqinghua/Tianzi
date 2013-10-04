@@ -5,21 +5,26 @@ define (require, exports, module)->
       el = @
       @guid = @makeGuid()
       # can we not use underscore?
-      if not _.isEmpty(@rDefault)
-        attrs = _.defaults({},ops,@rDefault)
+      if not _.isEmpty(@defalutArg)
+        attrs = _.defaults({},ops,@defalutArg)
         _.each(attrs,(v,k)->
           if k of el.__proto__
             el[k] = v
         )
+      if not _.isEmpty((@rDefault))
+        @rAttrs = @rDefault
       return @
     makeGuid: (len=16)->
       nu = Math.random().toString()
       id = nu.slice(nu.length-len+1,-1)
       return id
+    arg_rarg_map_func: ()->
+      grid
     guid: 0
     offsetToSvg :{x:0,y:0}
     rDefault: {}
-    rPaper:{}
+    rPaper: null
+    rAttrs: null
     refresh:()->
       true
 
@@ -27,5 +32,5 @@ define (require, exports, module)->
     ngModel: []
 
   module.exports = Basic
-  #todo remember to return module.exports if you want sea.js works correctly in coffee
+  #todo tips remember to return module.exports if you want sea.js works correctly in coffee
   return module.exports

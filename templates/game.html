@@ -7,6 +7,8 @@
 
 
   <link rel="stylesheet" href="/media/css/game.css" />
+  <link rel="stylesheet" href="/media/css/font.css" />
+
   <script type="text/javascript" src="/game/app/lib/raphael.js"></script>
   <script type="text/javascript" src="/game/app/lib/angular.min.js"></script>
   <script type="text/javascript" src="/game/app/lib/underscore.js"></script>
@@ -46,15 +48,18 @@
           <button onclick="loadGameData();">读取游戏信息</button>
           <button onclick="resetGame();">重置游戏</button>
           <div id="" class="">
-              <input type="text"  id='scaleInput' placeholder="Input the scale" ng-model="title">
+              <input type="text"  id='scaleInput' placeholder="Input the scale">
               <button onclick="scaleGame(document.getElementById('scaleInput').value, paper);">Scale</button>
           </div><!-- / -->
           <div class="output" id="output-panel">
-            <h4 ng-model="title">Square box</h4>
+            <h3>{{title}}</h3>
             <button ng-click="refresh();" >Refresh</button>
             <div class="square-cnt">
-              <ul>
-                <li ng-repeat="square in square_box | orderBy:squareOrder" class="item">
+              <h4 >Square box </h4>
+              <ul >
+                <!--  assign a array consists of prop's key name to order the ng-repeat  -->
+                <!--  todo how can we use  a custom function to suit in complicated situation? -->
+                <li ng-repeat="square in square_box | orderBy:['gridX','gridY'] " class="item">
                   <div>gridX: {{ square.gridX }}</div>
                   <div>gridY: {{ square.gridY }}</div>
                   <div>txt: {{ square.txt }}</div>
@@ -83,7 +88,7 @@
   </div>
 
 
-  <link type="text/css" href="/media/css/game.css">
+
 
   <div id="page_mask" style="background:rgba(125,125,125,.5);z-index:10;position:absolute;width:100%;top:0;height:100%;display:none">
 

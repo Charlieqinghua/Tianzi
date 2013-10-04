@@ -4,7 +4,7 @@ define (require,exports,module)->
     constructor:()->
       #@__proto__.constructor(arguments)
 
-    rDefaults:
+    rDefault:
       # #蓝黄
       # fill:"#41bea8",
       # stroke:'none'
@@ -27,7 +27,7 @@ define (require,exports,module)->
       @rElmt = @rPaper.set()
       @rElmt.TZBindObj = this
       @rElmt.push(
-          @rPaper.rect(@offsetToSvg.x,@offsetToSvg.y,BOARD_SIZE.xGrids * BOARD_SIZE.gridWidth,BOARD_SIZE.yGrids * BOARD_SIZE.gridWidth).attr(@rDefaults)
+        @rPaper.rect(@offsetToSvg.x,@offsetToSvg.y,BOARD_SIZE.xGrids * BOARD_SIZE.gridWidth,BOARD_SIZE.yGrids * BOARD_SIZE.gridWidth).attr(@rDefault)
       )
 #            绑定给raphael的click函数
 #      @rElmt.click((event)->

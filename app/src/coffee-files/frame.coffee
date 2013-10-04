@@ -8,10 +8,12 @@ define (require, exports, module)->
 #      console.log(el)
       TZ.frameBox.push(el)
       return el
-    rDefault:
+    defalutArg:
       gridX: 0
       gridY: 0
       len:1
+    rDefault:
+      fill: "#aaa"
     len:""
     gridX: 0
     gridY: 0

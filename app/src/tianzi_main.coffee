@@ -23,6 +23,7 @@ define("tianzi_game_main"
         squares = data.Squares
         _.each(squares,(item)->
           sqr = new Square(item)
+          sqr.draw()
         )
         if(data.matrix)
           tianzi.board.matrix = data.matrix
@@ -50,6 +51,8 @@ define("tianzi_game_main"
     #  ngTianziMain.config()
 
     BoardCtrl = ($scope, $routeParams)->
+      window.TZ.boardScope = $scope
+      Square.prototype.squareScope = $scope.$new(false)
 
       $scope.getTime = ()->
         return Date().toString()
@@ -80,6 +83,7 @@ define("tianzi_game_main"
     }
     Util.rebuildGame({Squares : startList.Squares ,Riddles:startList.Riddles})
 
+    $("#ng-app").trigger("game_ready");
 
     exports.basic = Basic
     exports.board = Board
