@@ -1,7 +1,6 @@
 define(null,["zepto","angularjs","src/tianzi_main"],function(require,exports,module) {
 
   var A = require('angularjs');
-//  var U = require('underscore');
   var zepto = require("zepto");
 
   var Tianzi = require.async("tianzi_game_main");

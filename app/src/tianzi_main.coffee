@@ -16,7 +16,7 @@ define("tianzi_game_main"
     Frame = require("coreDir/frame");
     Debug = require("coreDir/debug");
 
-    #console.log(Square)
+    #todo how to twoway data-binding?  Since the #debug-panel(under TZ.DebugCtrl) hasn't change after the TZ.squareBox changes
 
     Util =
       rebuildGame: (data)->
@@ -56,6 +56,8 @@ define("tianzi_game_main"
 
     window.TZ.BoardCtrl = BoardCtrl #ugly hack...
 
+
+
     Basic.prototype.rPaper = TZ.paper
     board = new Board()
 
@@ -83,6 +85,6 @@ define("tianzi_game_main"
     exports.board = Board
     #console.log(exports)
 
-
+    return module.exports
 )
 

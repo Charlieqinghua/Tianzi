@@ -14,23 +14,34 @@ define (require, exports, module)->
 
       if(args.spercific)
         _.each(args.spercific,(val,key)->
-            console.log(val);
+          console.log(val);
         )
 
       else
         _.each(debugList,(val,key)->
-            console.log(key);
-            console.log(val);
+          console.log(key);
+          console.log(val);
         )
     saveData: ()->
       @
 
+    # ng controller
+    DebugCtrl = ($scope, $routeParams, $http)->
+      $scope.square_box = TZ.squareBox
+      $scope.frame_box = TZ.frameBox
+      $scope.title = "Box panel"
 
-  DebugCtrl = ($scope, $routeParams, $http)->
-    true
+      $scope.refresh = ()->
+        console.log("refresh")
+        $scope.square_box = TZ.squareBox
+        return $scope.title
+      $scope.squareOrder= ()->
+        console.log("order square")
 
+    window.TZ.DebugCtrl = DebugCtrl
 
-
-  window.DebugCtrl = DebugCtrl
   debug = new Debug
+  window.debug=debug
+
   module.exports = Debug
+  return module.exports
