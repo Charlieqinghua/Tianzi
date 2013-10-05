@@ -7,6 +7,7 @@ bower_components/
 .directory/
 *.swp
 *.swo
+*.swn
 *.*~
 *.pyc
 
@@ -24,3 +25,5 @@ session.vim
 app/src/coffee-files/*.js
 app/src/tianzi_main.js
 media/img/
+
+docs/

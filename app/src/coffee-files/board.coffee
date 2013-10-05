@@ -2,8 +2,11 @@ define (require,exports,module)->
   Basic = require("coreDir/basic");
   Util = require("coreDir/util");
   Square = require("coreDir/square");
+  Frame = require("coreDir/frame");
   #console.log('bosss')
   boardScope = null
+  squareScope = null
+  frameScope = null
   TZ.mymodule.factory("scope_finished",($q)->
     #
     deferred = $q.defer()
@@ -24,18 +27,29 @@ define (require,exports,module)->
     window.TZ.squareScope = squareScope
     window.TZ.frameScope = frameScope
 
-#    console.log(scope_finished)
+    Square.prototype.squareScope = squareScope
+    Board.prototype.boardScope = boardScope
+    Frame.prototype.frameScope = frameScope
+
+    #console.log(Square.prototype)
+    # tell it to bind event
     scope_finished.resolve()
 
     $scope.getTime = ()->
       return Date().toString()
-    boardScope.$on("redraw",()->
+    boardScope.$on "redraw",()->
       #console.log("board scope  -- redraw")
 
-    )
+
+    squareScope.$on "test",()->
+      console.log("testing with square scope")
   )
   #window.TZ.BoardCtrl = BoardCtrl #ugly hack...
 
+  ###
+    @author nice
+    @return good
+  ###
   class Board extends Basic
     constructor:()->
       super(arguments)
@@ -79,10 +93,13 @@ define (require,exports,module)->
       )
     click:(e)->
       #console.log("board click")
-      console.log(e)
+      #console.log(e)
       toBoard = {x: e.layerX,y: e.layerY}
       gridArg = Util.convert_board_to_model(toBoard,"layer")
       sqr = new Square(gridArg,true)
+      TZ.inputWrapper.hide()
+      #sqr.click(e)
+
 #            绑定给raphael的click函数
 #      @rElmt.click((event)->
 #        console.log(event)

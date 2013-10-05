@@ -1,5 +1,6 @@
 define (require, exports, module)->
   Basic = require("coreDir/basic")
+  #todo z-index?  should go under the square and texts
   class Frame extends Basic
     constructor:(ops)->
       super(ops)
@@ -38,7 +39,8 @@ define (require, exports, module)->
       if shouldApply
         _.extend(@rAttrs,mp)
       return mp
-
+    click:()->
+      console.log(arguments)
   if window.TZ.frameScope
     Frame.prototype.frameScope = window.TZ.frameScope
     console.log("frameScope exists")

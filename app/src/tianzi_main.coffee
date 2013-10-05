@@ -33,7 +33,27 @@ define("tianzi_game_main"
     board = new Board()
 
     board.create();
+    # inputter events
+    inputter = TZ.inputter
+    inputter.on("keydown",(e)->
+      # what if in mobile device?
+      keycode = e.keyCode
+      #console.log(keycode)
+      switch keycode
+        when 13
+          $el = $(@)
+          val = $el.val()
 
+          rs = inputter["related-square"]
+          try
+            if(rs)
+              rlt = rs.refresh({txt : val})
+              TZ.inputWrapper.hide()
+              inputter.val("")
+          catch er
+            console.log(er.message)
+
+    )
     # test the UI
     startList = {
       Squares : {

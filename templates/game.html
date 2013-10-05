@@ -43,10 +43,10 @@
       {% verbatim %}
       <div id="debugWrapper" ng-controller="TZ.DebugCtrl">
           <input type="text" id="debugInput" placeholder="debugInput">
-          <button id="btnPrintObjInfo" onclick="window.debug.printObjInfo({});">打印对象信息</button>
-          <button ng-click="debug.saveData" onclick="saveGameData();">保存游戏信息</button>
-          <button onclick="loadGameData();">读取游戏信息</button>
-          <button onclick="resetGame();">重置游戏</button>
+          <button id="btnPrintObjInfo" onclick="Util.printObjInfo();">打印对象信息</button>
+          <button ng-click="debug.saveData" onclick="Util.saveGameData();">保存游戏信息</button>
+          <button onclick="Util.loadGameData();">读取游戏信息</button>
+          <button onclick="Util.resetGame();">重置游戏</button>
           <div id="" class="">
               <input type="text"  id='scaleInput' placeholder="Input the scale">
               <button onclick="scaleGame(document.getElementById('scaleInput').value, paper);">Scale</button>
@@ -60,9 +60,9 @@
                 <!--  assign a array consists of prop's key name to order the ng-repeat  -->
                 <!--  todo how can we use  a custom function to suit in complicated situation? -->
                 <li ng-repeat="square in square_box | orderBy:['gridX','gridY'] " class="item">
-                  <div>gridX: {{ square.gridX }}</div>
-                  <div>gridY: {{ square.gridY }}</div>
-                  <div>txt: {{ square.txt }}</div>
+                  <div class="line">gridX: {{ square.gridX }}</div>
+                  <div class="line">gridY: {{ square.gridY }}</div>
+                  <div class="line">txt: <span contenteditable="">{{ square.txt }}</span></div>
                 </li>
               </ul>
             </div>
@@ -70,10 +70,10 @@
               <h4>Frame <Box></Box></h4>
               <ul >
                 <li ng-repeat="frame in frame_box" class="item">
-                  <div>gridX: {{ frame.gridX }}</div>
-                  <div>gridY: {{ frame.gridY }}</div>
-                  <div>len: {{ frame.len }}</div>
-                  <div>dire: {{ frame.direction }}</div>
+                  <div class="line">gridX: {{ frame.gridX }}</div>
+                  <div class="line">gridY: {{ frame.gridY }}</div>
+                  <div class="line">len: {{ frame.len }}</div>
+                  <div class="line">dire: {{ frame.direction }}</div>
                 </li>
               </ul>
             </div>
