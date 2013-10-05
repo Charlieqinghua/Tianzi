@@ -27,7 +27,9 @@ define (require, exports, module)->
     rAttrs: null
     refresh:()->
       true
-
+    draw: ()->
+      if not @rEle
+        @rEle = @rPaper.rect().attr(@rAttrs)
     ngCtrl: []
     ngModel: []
 

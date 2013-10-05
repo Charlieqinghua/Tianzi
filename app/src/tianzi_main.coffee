@@ -6,6 +6,7 @@ define("tianzi_game_main"
     "coreDir/frame"
     "coreDir/square"
     "coreDir/debug"
+    "coreDir/util"
   ]
   (require,exports,module)->
 
@@ -14,50 +15,17 @@ define("tianzi_game_main"
     Text = require("coreDir/text");
     Square = require("coreDir/square");
     Frame = require("coreDir/frame");
+    Util = require("coreDir/util");
     Debug = require("coreDir/debug");
 
-    #todo how to twoway data-binding?  Since the #debug-panel(under TZ.DebugCtrl) hasn't change after the TZ.squareBox changes
+    #todo refresh() in DebugCtrl affect the getTime()?  still don't know the $scope
 
-    Util =
-      rebuildGame: (data)->
-        squares = data.Squares
-        _.each(squares,(item)->
-          sqr = new Square(item)
-          sqr.draw()
-        )
-        if(data.matrix)
-          tianzi.board.matrix = data.matrix
-        if(data.Riddles)
-          @initRiddles(data.Riddles)
-        @
-      initRiddles:(data)->
-        riddles = data
-        _.each(riddles,(item)->
-          gridX = parseInt(item.gridX)
-          len = parseInt(item.len)
-          gridY = parseInt(item.gridY)
-          dire = item.dir
-          rdl = new Frame({gridX:gridX , gridY:gridY , len:len , direction:dire})
-          for i in [0,len]
-            if(dire=='H')
-              sqr = new Square({gridX:gridX+i,gridY:gridY})
-            else
-              sqr = new Square({gridX:gridX,gridY:gridY + i})
-        )
-    window.Util = Util
+
 
     #angular
     #ngTianziMain = angular.module("tianziMain",[]);
     #  ngTianziMain.config()
 
-    BoardCtrl = ($scope, $routeParams)->
-      window.TZ.boardScope = $scope
-      Square.prototype.squareScope = $scope.$new(false)
-
-      $scope.getTime = ()->
-        return Date().toString()
-
-    window.TZ.BoardCtrl = BoardCtrl #ugly hack...
 
 
 

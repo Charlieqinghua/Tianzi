@@ -25,25 +25,25 @@ Tianzi.Text = Tianzi.Component.extend({
         var bBox = options.bBox || { x:0, y:0};
         this.txt = options.txt || '';
         this.status = {};
-        this.rElmt = paper.text( (bBox.x + bBox.x2) / 2 ,(bBox.y + bBox.y2) / 2  ,this.txt);  // text-anchor默认middle时是设定文字中心点坐标
-        this.rElmt.attr(this.textStyle);
-        this.rElmt.toFront();
-        this.rElmt.TZBindObj = this;
+        this.rEle = paper.text( (bBox.x + bBox.x2) / 2 ,(bBox.y + bBox.y2) / 2  ,this.txt);  // text-anchor默认middle时是设定文字中心点坐标
+        this.rEle.attr(this.textStyle);
+        this.rEle.toFront();
+        this.rEle.TZBindObj = this;
         textBox.push(this);
         //事件绑定--------------------
-        this.rElmt.click(function(event){
+        this.rEle.click(function(event){
             this.TZBindObj.click({eventArg:event});
 
         });
-        this.rElmt.mouseover(function(){
+        this.rEle.mouseover(function(){
             this.stop().animateQueue(textMouseoverQueue);
             this.TZBindObj.mouseover();
         });
-        this.rElmt.mouseout(function(){
+        this.rEle.mouseout(function(){
             this.stop().animateQueue(textMouseoutQueue);
 //                this.TZBindObj.mouseout();
         });
-        this.rElmt.drag(function(event){
+        this.rEle.drag(function(event){
 //                console.log('drag');
             this.drag({eventArg:event});
 //                console.log(event);
@@ -59,7 +59,7 @@ Tianzi.Text = Tianzi.Component.extend({
     },
     drag : function(args){
         var event = args.eventArg;
-//            this.rElmt
+//            this.rEle
 
     }
 });

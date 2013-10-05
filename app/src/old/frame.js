@@ -23,8 +23,8 @@ Tianzi.Frame = Tianzi.Component.extend({
     contents :[], //包含的square
     create : function(options){
         var el = this;
-        this.rElmt = paper.rect().attr(el.rDefaults);
-        this.rElmt.TZBindObj = this;
+        this.rEle = paper.rect().attr(el.rDefaults);
+        this.rEle.TZBindObj = this;
         var gridX = options.startGridX ? options.startGridX : 1,
             gridY = options.startGridY ? options.startGridY : 1;
         var len = options.length ? options.length : 1;
@@ -40,11 +40,11 @@ Tianzi.Frame = Tianzi.Component.extend({
 //        console.log(pos);
         var sideLen = tianzi.boardOption.gridWidth * tianzi.scale;
         if(this.status.direction && this.status.direction=='V'){
-            this.rElmt.attr({width:sideLen ,height:sideLen* this.status.length,x:pos.x,y:pos.y});
+            this.rEle.attr({width:sideLen ,height:sideLen* this.status.length,x:pos.x,y:pos.y});
 //            console.log('vertical');
         }else{
             //默认状况是横着的
-            this.rElmt.attr({width:sideLen * this.status.length ,height:sideLen,x:pos.x,y:pos.y});
+            this.rEle.attr({width:sideLen * this.status.length ,height:sideLen,x:pos.x,y:pos.y});
 //            console.log('horizonal');
         }
     }

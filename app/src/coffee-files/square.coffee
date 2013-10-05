@@ -24,6 +24,7 @@ define (require, exports, module)->
     gridY: 0
     isInputing: false
     rEle: null
+    rBundle: null
     squareScope: null # for angular
     addText:(text)->
       @txt = text

@@ -28,11 +28,11 @@
 
     </header>
      <div id="content">
-     <div id="ng-app">
+     <div id="ng-app" >
       <!--angular template, not django-->
        {% verbatim %}
          <div id="boardWrapper">
-           <div ng-controller="TZ.BoardCtrl">
+           <div ng-controller="BoardCtrl">
              <h3>I'm the board. Ticking {{getTime();}}</h3>
              <div id="svgWrapper"></div>
            </div>

@@ -78,19 +78,19 @@ Tianzi = function(paper) {
         create : function(){
             var el = this;
             this.refresh();
-            this.rElmt = paper.set();
-            this.rElmt.TZBindObj = this;
-            this.rElmt.push(
+            this.rEle = paper.set();
+            this.rEle.TZBindObj = this;
+            this.rEle.push(
                 paper.rect(this.offsetToSvg.x,this.offsetToSvg.y,BOARD_SIZE.xGrids * BOARD_SIZE.gridWidth,BOARD_SIZE.yGrids * BOARD_SIZE.gridWidth).attr(this.rDefaults)
             );
 //            绑定给raphael的click函数
-            this.rElmt.click(function(event){
+            this.rEle.click(function(event){
                 console.log(event);
                 mouseToSvg = { offsetX:event.offsetX, offsetY:event.offsetY };
 //                console.log(mouseToSvg);
                 el.click({mouseToSvg : mouseToSvg ,eventArg : event});
             });
-            this.rElmt.drag(function(){})
+            this.rEle.drag(function(){})
         },
         click : function(args){
             point = args.mouseToSvg;
@@ -230,7 +230,7 @@ Tianzi.Component = MyClass.extend({
     init : function(options){
         if(this.create)   this.create(options);
     },
-    rElmt : null,
+    rEle : null,
     /**
      * 传入需要查询的属性名列表
      * @param list  一个数组 元素是表示属性名的字符串
