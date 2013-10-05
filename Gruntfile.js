@@ -7,6 +7,7 @@ module.exports = function( grunt ) {
     grunt.loadNpmTasks( "grunt-contrib-jshint" );
     grunt.loadNpmTasks( "grunt-contrib-uglify" );
     grunt.loadNpmTasks( "grunt-contrib-concat" );
+    grunt.loadNpmTasks( "grunt-autoprefixer" );
     // grunt.loadNpmTasks( "grunt-contrib-qunit" );
     // grunt.loadNpmTasks( "grunt-contrib-csslint" );
     // grunt.loadNpmTasks( "grunt-html" );
@@ -49,12 +50,17 @@ module.exports = function( grunt ) {
         },
         jasmine:{
 
-        }
+        },
+        docco: docco
     });
-
+    // var coffeeFiles = "app/src/coffee-files/*.coffee"
+    // var docco = function() {
+    //     // body...
+    // }
     //grunt.registerTask( "watch", [ "watch"] );
     grunt.registerTask( "lint", [ "jslint"] );
     grunt.registerTask( "test", [ "jasmine"] );
     grunt.registerTask( "my_watch", [ "watch"] );
+    grunt.registerTask( "makedoc", [ "docco"] );
 
 }

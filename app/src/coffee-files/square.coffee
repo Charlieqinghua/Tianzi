@@ -96,22 +96,40 @@ define (require, exports, module)->
 #      )
     destroy:()->
       # GC is a big problem
+      el = @
       @rEle.remove()
       @rText.remove()
       @rBundle.remove()
       @rBundle.remove()
+      box_ref = null
+      _.find(TZ.squareBox,(item,idx)->
+        if item.guid == el.guid
+          box_ref = idx
+          return
+      )
+      console.log(box_ref)
+      delete TZ.squareBox[box_ref]
     ## events
     click:(e)->
-#      console.log(@)
 #      console.log(e)
       target = e.target
-      switch target.localNaame
+      has_shift_key = e.shiftKey
+      console.log(target.localName)
+      switch target.localName
         when "rect"
           #on the square
-          true
+          if has_shift_key
+            @destroy()
+            TZ.squareBox= _.compact(TZ.squareBox)
         when "tspan"
           # on text
+          if has_shift_key
+            @rText.remove()
+            @txt=""
           true
+        else
+          console.log("nothing")
+      if has_shift_key then return
       inputter = TZ.inputter # should not use zepto to select again , cause that will lose ["related-square"]
       TZ.inputWrapper.css({"left":e.pageX + "px","top":e.pageY + "px"}).show()
 

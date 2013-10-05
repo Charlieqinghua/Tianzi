@@ -21,7 +21,6 @@ define("tianzi_game_main"
     #todo refresh() in DebugCtrl affect the getTime()?  still don't know the $scope
 
 
-
     #angular
     #ngTianziMain = angular.module("tianziMain",[]);
     #  ngTianziMain.config()
@@ -35,6 +34,15 @@ define("tianzi_game_main"
     board.create();
     # inputter events
     inputter = TZ.inputter
+    inputter.on "focus", (e)->
+      console.log("on focus")
+      rs = inputter["related-square"]
+      eve("#{rs.guid}.editting",rs)
+    inputter.on "blur", (e)->
+      console.log("blur")
+      rs = inputter["related-square"]
+      eve("#{rs.guid}.leave_editing",rs)
+
     inputter.on("keydown",(e)->
       # what if in mobile device?
       keycode = e.keyCode

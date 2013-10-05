@@ -5,6 +5,7 @@
 		"zepto":"*",
 		"raphael": "*",
 		"angular": "*",
+        "lesshat": "*",
 		"underscore": "*"
 
   }

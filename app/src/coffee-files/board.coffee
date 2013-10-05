@@ -51,6 +51,7 @@ define (require,exports,module)->
     @return good
   ###
   class Board extends Basic
+
     constructor:()->
       super(arguments)
 
