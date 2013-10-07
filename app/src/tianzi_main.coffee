@@ -37,11 +37,11 @@ define("tianzi_game_main"
     inputter.on "focus", (e)->
       console.log("on focus")
       rs = inputter["related-square"]
-      eve("#{rs.guid}.editting",rs)
+      eve("square.editing",rs,rs)
     inputter.on "blur", (e)->
       console.log("blur")
       rs = inputter["related-square"]
-      eve("#{rs.guid}.leave_editing",rs)
+      eve("square.leave_editing",rs,rs)
 
     inputter.on("keydown",(e)->
       # what if in mobile device?

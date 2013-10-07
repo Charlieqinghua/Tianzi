@@ -37,9 +37,9 @@ define (require, exports, module)->
     draw: ()->
       el=@
       if @rBundle
-        #todo can we not add listenner to all the elements, but to the root element
+        # can we not add listenner to all the elements, but to the root element
         # and use event capture.   A way to optimize the performance
-        @bind_event()
+        @bind_own_event()
       else
         if not @rEle
           Util.convert_board_to_model()
@@ -49,9 +49,10 @@ define (require, exports, module)->
         y = ty+(hei/2)
         @rText = @rPaper.text(x,y,@txt).attr({"font-size":OPS.text_size,"font-family":"verdana",fill:OPS.text_fill})
         @rBundle = @rPaper.set().push(el.rEle).push(el.rText)
-        @bind_event()
+        @bind_own_event()
     map_style_func:(obj,shouldApply=false)->
       mp = {}
+      #todo even with the offset ok?
       _.each(obj,(v,k)->
         switch(k)
           when 'gridX'
@@ -68,11 +69,15 @@ define (require, exports, module)->
 
       return mp
 
-    bind_event:()->
+    bind_own_event:()->
       el = @
       @rBundle.click (e)->
         el.click(e)
-      @rEle.drag(el.drag)
+
+      d = el.drag_event
+      @rEle.drag(d.onmove,d.onstart,d.onend,@,@,@)  # should bind the context of sqaure
+      #todo maybe we should not add so many listeners... just pass the guid as argument will be ok
+
 
     refresh:(ops)->
       #or should I use a events hub?
@@ -114,7 +119,7 @@ define (require, exports, module)->
 #      console.log(e)
       target = e.target
       has_shift_key = e.shiftKey
-      console.log(target.localName)
+      #console.log(target.localName)
       switch target.localName
         when "rect"
           #on the square
@@ -137,8 +142,26 @@ define (require, exports, module)->
       inputter["related-square"] = @
       inputter.focus().val(@txt)
 
-    drag:()->
-      #todo if drag distance is less than a threadshold , treat it as a click
-      console.log(arguments)
+    drag_event:{
+      onmove:(dx,dy,curX,curY,e)->
+        #todo if drag distance is less than a threadshold , treat it as a click
+#        console.log(arguments)
+#        console.log(e)
+      onstart:(x,y,e)->
+#        console.log(arguments)
+#        console.log(e)
+#        e.srcElement
+      onend:(e)->
+#        console.log(arguments)
+#        console.log("on end")
+        console.log(e)
+#        e.toElement
+        to_ele = e.toElement
+        to_tar_ele = @rPaper.getElementsByPoint(e.layerX,e.layerY)
+        console.log(to_tar_ele)
+#        grid_arg = Util.convert_svg_board_arg({x:e.layerX,y:e.layerY},"layer")
+        grid_arg = Util.convert_board_to_model({x:e.layerX,y:e.layerY},"layer")
+        # todo how to do the 碰撞检测 ?
+    }
   module.exports = Square
   return module.exports

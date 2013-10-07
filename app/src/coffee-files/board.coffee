@@ -57,6 +57,7 @@ define (require,exports,module)->
 
       el=@
       TZ.board = el
+      @offsetToSvg = TZ.OPS.board_offset
     rDefault:
       # #蓝黄
       # fill:"#41bea8",
@@ -66,6 +67,7 @@ define (require,exports,module)->
 #      fill:'#febe28'
       fill:'#febe28'
       stroke:'none'
+      class:"board"
 
     matrix : []
     boardScope: null
@@ -76,7 +78,19 @@ define (require,exports,module)->
       el = @
       #@rEle = @rPaper.set()
       @rEle = @rPaper.rect(@offsetToSvg.x,@offsetToSvg.y,BOARD_SIZE.xGrids * BOARD_SIZE.gridWidth,BOARD_SIZE.yGrids * BOARD_SIZE.gridWidth).attr(@rDefault)
+      @bind_r_event()
+    #
+    bind_r_event:()->
 
+      eve.on "square.editing",(ele)->
+        # ele is the Square
+        console.log(arguments)
+        ele.isInputting = true
+#        ele.addClass("editing")
+      eve.on "square.leave_editing",(ele)->
+        console.log(arguments)
+        ele.isInputting = false
+#        ele.removeClass("editing")
     bind_scope_event:()->
       el = @
       if not @boardScope

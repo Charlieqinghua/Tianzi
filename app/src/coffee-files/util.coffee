@@ -75,14 +75,69 @@ define(null,
         TZ.board.refresh();
         console.log("Reset the squares")
 
+      scaleGame:()->
+        new_scale = parseFloat($("#scaleInput").val())
+        OPS.scale = new_scale
+
       convert_board_to_model:(cord,mode)->
         tmp_cord = {}
         switch mode
           when 'layer'
             tmp_cord.gridX = cord.x * TZ.scale / BOARD_SIZE.gridWidth >> 0
             tmp_cord.gridY = cord.y * TZ.scale / BOARD_SIZE.gridWidth >> 0
+          when "SVG"
+            tmp_cord.gridX = cord.x * TZ.scale / BOARD_SIZE.gridWidth - TZ.OPS.board_offset.x >> 0
+            tmp_cord.gridY = cord.y * TZ.scale / BOARD_SIZE.gridWidth - TZ.OPS.board_offset.y >> 0
         #console.log(tmp_cord)
         return tmp_cord
+#      convert_svg_board_arg:(obj,mode)->
+#        tmp_cord = {}
+#        switch mode
+#          when "layer"
+#            tmp_cord
+#        true
+      find_nearest_square:(obj,offsetMode="SVG")->
+        tmp_cord=obj
+        grid_offset = {x:0,y:0}
+        if offsetMode=="SVG"
+          tmp_cord.x += TZ.OPS.board_offset.x
+          tmp_cord.y += TZ.OPS.board_offset.y
+
+        gWid =  TZ.BOARD_SIZE.gridWidth
+        # dx and dy are recording to the left top point
+        dx = tmp_cord.x % gWid
+        dy = tmp_cord.y % gWid
+        grid_offset.x = if dx/gWid > 0.5 then 1 else 0
+        grid_offset.y = if dy/gWid > 0.5 then 1 else 0
+        tmp_cord = Util.convert_board_to_model({x:obj.x,y:obj.y},"SVG")
+        console.log(@)
+        console.log(tmp_cord)
+        return {gridX:tmp_cord.x + grid_offset.x, gridY:tmp_cord.y + grid_offset.y}
+
+
+      get_obj_by_id:(guid)->
+        collection = _.union(TZ.squareBox,TZ.frameBox)
+
     window.Util = Util
+    # ----- end of Util
+
+
+    #extending Raphael
+#    console.log("extending R")
+#    window.Raphael.fn.addClass=(ele,className)->
+#      old=ele.attr("class")
+#      old_arr = old.split(" ")
+#      console.log(old_arr)
+#      if not _.some(old_arr,className)
+#        ele.attr("class",old+" #{className}")
+#
+#    window.Raphael.fn.removeClass=(ele,className)->
+#      old=ele.attr("class")
+#      console.log(old)
+#      reg =  new RegExp("\s#{className}\s")
+#      new_str = old.replace(reg,"")
+#      console.log(new_str)
+#      ele.attr("class",new_str)
+
     module.exports = Util
 )

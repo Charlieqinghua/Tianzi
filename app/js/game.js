@@ -19,7 +19,8 @@ define(null,["zepto","angularjs","src/tianzi_main"],function(require,exports,mod
   var OPS={
     text_size:"20px",
     text_fill: "#B4493A",
-    BOARD_SIZE: {width : 600 , height : 600 , xGrids : 18 ,yGrids : 18, gridWidth : 40}
+    BOARD_SIZE: {width : 600 , height : 600 , xGrids : 18 ,yGrids : 18, gridWidth : 40},
+    board_offset: {x:40,y:40} // board offset to svg tag
   }
   TZ.OPS = OPS
   window.OPS = OPS

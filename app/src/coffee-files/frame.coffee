@@ -24,6 +24,7 @@ define (require, exports, module)->
     gridY: 0
     isInputing: false
     direction:"H"
+    squresInside:[]
     map_style_func:(obj,shouldApply=false)->
       mp = {}
       mp['x'] = obj["gridX"] * BOARD_SIZE.gridWidth
@@ -39,10 +40,16 @@ define (require, exports, module)->
       if shouldApply
         _.extend(@rAttrs,mp)
       return mp
-    click:()->
+    bind_r_event:()->
+      el=@
+      @rEle.click(el.click)
+    click:(e)->
       console.log(arguments)
+
+  # here?
   if window.TZ.frameScope
     Frame.prototype.frameScope = window.TZ.frameScope
     console.log("frameScope exists")
+
   module.exports = Frame
   return module.exports

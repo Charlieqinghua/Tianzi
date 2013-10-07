@@ -49,7 +49,7 @@
           <button onclick="Util.resetGame();">重置游戏</button>
           <div id="" class="">
               <input type="text"  id='scaleInput' placeholder="Input the scale">
-              <button onclick="scaleGame(document.getElementById('scaleInput').value, paper);">Scale</button>
+              <button onclick="Util.scaleGame();">Scale</button>
           </div><!-- / -->
           <div class="output" id="output-panel">
             <h3>{{title}}</h3>
@@ -62,7 +62,8 @@
                 <li ng-repeat="square in square_box | orderBy:['gridX','gridY'] " class="item">
                   <div class="line">gridX: {{ square.gridX }}</div>
                   <div class="line">gridY: {{ square.gridY }}</div>
-                  <div class="line">txt: <span contenteditable="">{{ square.txt }}</span></div>
+                  <div class="line">txt: <span contenteditable>{{ square.txt }}</span></div>
+                  <!--<div class="line">id: <span>{{ square.guid }}</span></div>-->
                 </li>
               </ul>
             </div>
