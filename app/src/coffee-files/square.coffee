@@ -158,9 +158,14 @@ define (require, exports, module)->
 #        e.toElement
         to_ele = e.toElement
         to_tar_ele = @rPaper.getElementsByPoint(e.layerX,e.layerY)
-        console.log(to_tar_ele)
+        #console.log(to_tar_ele)
 #        grid_arg = Util.convert_svg_board_arg({x:e.layerX,y:e.layerY},"layer")
-        grid_arg = Util.convert_board_to_model({x:e.layerX,y:e.layerY},"layer")
+        grid_arg = Util.find_nearest_square({x:e.layerX,y:e.layerY},"layer")
+        console.log(grid_arg)
+
+        bd = TZ.board
+        if not bd.matrix[grid_arg.gridX][grid_arg.gridY]
+          sqr = new Square(grid_arg,true)
         # todo how to do the 碰撞检测 ?
     }
   module.exports = Square

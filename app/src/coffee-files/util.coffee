@@ -86,8 +86,8 @@ define(null,
             tmp_cord.gridX = cord.x * TZ.scale / BOARD_SIZE.gridWidth >> 0
             tmp_cord.gridY = cord.y * TZ.scale / BOARD_SIZE.gridWidth >> 0
           when "SVG"
-            tmp_cord.gridX = cord.x * TZ.scale / BOARD_SIZE.gridWidth - TZ.OPS.board_offset.x >> 0
-            tmp_cord.gridY = cord.y * TZ.scale / BOARD_SIZE.gridWidth - TZ.OPS.board_offset.y >> 0
+            tmp_cord.gridX = (cord.x- TZ.OPS.board_offset.x) * TZ.scale / BOARD_SIZE.gridWidth  >> 0
+            tmp_cord.gridY = (cord.y- TZ.OPS.board_offset.y ) * TZ.scale / BOARD_SIZE.gridWidth >> 0
         #console.log(tmp_cord)
         return tmp_cord
 #      convert_svg_board_arg:(obj,mode)->
@@ -103,16 +103,24 @@ define(null,
           tmp_cord.x += TZ.OPS.board_offset.x
           tmp_cord.y += TZ.OPS.board_offset.y
 
-        gWid =  TZ.BOARD_SIZE.gridWidth
+        gWid = TZ.OPS.BOARD_SIZE.gridWidth
+        #todo your brain sucks
         # dx and dy are recording to the left top point
         dx = tmp_cord.x % gWid
         dy = tmp_cord.y % gWid
+#        xr = dx/gWid
+#        yr = dy/gWid
+#        if xr<0.25 then grid_offset.x = -1
+#        else if xr> 0.75 then grid_offset.x = 1
+#        else grid_offset.x=0
+#
+#        if yr<0.25 then grid_offset.y = -1
+#        else if yr> 0.75 then grid_offset.y = 1
+#        else grid_offset.y=0
         grid_offset.x = if dx/gWid > 0.5 then 1 else 0
         grid_offset.y = if dy/gWid > 0.5 then 1 else 0
         tmp_cord = Util.convert_board_to_model({x:obj.x,y:obj.y},"SVG")
-        console.log(@)
-        console.log(tmp_cord)
-        return {gridX:tmp_cord.x + grid_offset.x, gridY:tmp_cord.y + grid_offset.y}
+        return {gridX:tmp_cord.gridX + grid_offset.x, gridY:tmp_cord.gridY + grid_offset.y}
 
 
       get_obj_by_id:(guid)->
