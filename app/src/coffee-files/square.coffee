@@ -119,7 +119,6 @@ define (require, exports, module)->
 #      console.log(e)
       target = e.target
       has_shift_key = e.shiftKey
-      #console.log(target.localName)
       switch target.localName
         when "rect"
           #on the square
