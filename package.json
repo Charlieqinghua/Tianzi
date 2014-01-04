@@ -2,9 +2,15 @@
   "name": "Tianzi",
   "version": "0.0.1",
   "dependencies": {
-		"grunt":"~0.4.1",
 		"express": "*",
-		"jade": "*"
+		"coffee-script": "*",
+    "express3-handlebars": "*",
+		"handlebars": "*"
+  },
+  "devDependencies":{
+		"grunt":"~0.4.1",
+    "growl": "*"
+
   },
 	"engines": {
 		"node": ">=0.8.0"
