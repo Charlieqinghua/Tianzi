@@ -1,0 +1,42 @@
+body {
+  font-family: "museo-sans";
+}
+#debugWrapper {
+  margin-left: 50px;
+  width: 350px;
+  position: absolute;
+  right: 10px;
+}
+#svgWrapper {
+  margin-left: 100px;
+  float: left;
+}
+#svgWrapper svg {
+  border: transparent 1px solid;
+}
+/*#svgWrapper svg:hover{border: #fbb450 1px solid ;}*/
+#inputWrapper {
+  position: absolute;
+  background: #a2cff3;
+  overflow: auto;
+  border-radius: 6px;
+  padding: 4px;
+  display: inline-block;
+  border: 2px #8cabe4 solid;
+}
+#inputBox {
+  width: 24px;
+  line-height: 24px;
+  font-size: 20px;
+  padding: 6px;
+  border: none;
+  outline: none;
+}
+#output-panel ul {
+  padding: 0px;
+}
+#output-panel li.item {
+  display: inline-block;
+  list-style: none;
+  padding: 5px;
+}
