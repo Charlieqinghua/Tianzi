@@ -1,37 +1,35 @@
-define("tianzi_game_main"
-  [
-    "coreDir/basic"
-    "coreDir/board"
-    "coreDir/text"
-    "coreDir/frame"
-    "coreDir/square"
-    "coreDir/debug"
-    "coreDir/util"
-  ]
-  (require,exports,module)->
+define([
+  "elements/basic"
+  "elements/board"
+  "elements/text"
+  "elements/frame"
+  "elements/square"
+  "elements/debug"
+  "elements/util"
+  "angular"
+]
+  ,(require,exports,module)->
 
-    Basic = require("coreDir/basic");
-    Board = require("coreDir/board");
-    Text = require("coreDir/text");
-    Square = require("coreDir/square");
-    Frame = require("coreDir/frame");
-    Util = require("coreDir/util");
-    Debug = require("coreDir/debug");
+    Basic = require("elements/basic")
+    Board = require("elements/board")
+    Text = require("elements/text")
+    Square = require("elements/square")
+    Frame = require("elements/frame")
+    Util = require("elements/util")
+    Debug = require("elements/debug")
 
     #todo refresh() in DebugCtrl affect the getTime()?  still don't know the $scope
 
 
     #angular
-    #ngTianziMain = angular.module("tianziMain",[]);
+    #ngTianziMain = angular.module("tianziMain",[])
     #  ngTianziMain.config()
-
-
 
 
     Basic.prototype.rPaper = TZ.paper
     board = new Board()
 
-    board.create();
+    board.create()
     # inputter events
     inputter = TZ.inputter
     inputter.on "focus", (e)->
@@ -79,7 +77,8 @@ define("tianzi_game_main"
     }
     Util.rebuildGame({Squares : startList.Squares ,Riddles:startList.Riddles})
 
-    $("#ng-app").trigger("game_ready");
+    earchCompleteStop()
+    
 
     exports.basic = Basic
     exports.board = Board

@@ -1,6 +1,10 @@
-define (require, exports, module)->
-  Frame = require("coreDir/frame")
-  Square = require("coreDir/square")
+define [
+  'frame'
+  'square'
+]
+,(require, exports, module)->
+  Frame = require("frame")
+  Square = require("square")
   Debug =
     printObjInfo:()->
       if( document.getElementById("debugInput").value != ''  )

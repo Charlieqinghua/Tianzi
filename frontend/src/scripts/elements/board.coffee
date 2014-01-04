@@ -1,8 +1,13 @@
-define (require,exports,module)->
-  Basic = require("coreDir/basic");
-  Util = require("coreDir/util");
-  Square = require("coreDir/square");
-  Frame = require("coreDir/frame");
+define [
+  'basic'
+  'util'
+  'square'
+  'frame'
+], (require,exports,module)->
+  Basic = require("basic")
+  Util = require("util")
+  Square = require("square")
+  Frame = require("frame")
   #console.log('bosss')
   boardScope = null
   squareScope = null

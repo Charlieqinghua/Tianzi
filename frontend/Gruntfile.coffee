@@ -7,7 +7,6 @@ dirs =
   sass: "<%= dir.assets %>/_scss"
   css: "<%= dir.assets %>/css"
   images: "<%= dir.assets %>/img"
-  img: "img"
   srcJs: "src/scripts"
   srcLess: "src/styles"
   outJs: "<%= dir.build %>/scripts"
@@ -76,7 +75,7 @@ module.exports = (grunt)->
         cwd: '<%= dir.srcJs %>'
         src: ['**/*.coffee']
         dest: '<%= dir.outJs %>'
-        ext: 'js'
+        ext: '.js'
         options:
           sourceMap: true
 
@@ -87,11 +86,14 @@ module.exports = (grunt)->
         #files: ['<%= dir.srcSass %>/**/*.{sass,scss}', '!<%= dir.srcSass %>/.sass-cache/*']
         #tasks: ['less']
       scripts:
-        files: ['<%= dir.srcJs %>/**/*.js']
+        files: ['<%= dir.srcJs %>/**/*.coffee']
         tasks: ['newer:coffee']
       #hbs:
         #files: ['src/**/*.hbs']
         #tasks: ['newer:handlebars']
+      assets:
+        files: ['assets/**/*']
+        tasks: ['newer:copy']
 
     ## concurrent
     concurrent:
@@ -103,11 +105,14 @@ module.exports = (grunt)->
     copy:
       build:
         files: [{
-          src: 'assets/*'
+          expand: true
+          cwd: 'assets/'
+          src: '**/*'
           dest: '<%= dir.build %>/'
         },
         {
-          src: 'bower_components/*'
+          expand: true
+          src: 'bower_components/**/*'
           dest: '<%= dir.build %>/'
         }
         #,{

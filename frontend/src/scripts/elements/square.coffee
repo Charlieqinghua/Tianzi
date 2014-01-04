@@ -1,5 +1,5 @@
 define (require, exports, module)->
-  Basic = require("coreDir/basic")
+  Basic = require("basic")
 #  kk = new Basic()
 #  console.log(Basic)
 #  console.log(kk)

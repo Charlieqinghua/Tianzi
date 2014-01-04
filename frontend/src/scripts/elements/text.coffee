@@ -1,5 +1,5 @@
 define (require, exports, module)->
-  Basic = require("coreDir/basic");
+  Basic = require("./basic")
   # todo don't need this
   class Text extends Basic
     constructor:()->

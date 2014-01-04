@@ -1,5 +1,5 @@
 define (require, exports, module)->
-  Basic = require("coreDir/basic")
+  Basic = require("basic")
   #todo z-index?  should go under the square and texts
   class Frame extends Basic
     constructor:(ops)->

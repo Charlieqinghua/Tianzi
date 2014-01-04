@@ -1,11 +1,11 @@
 define(null,
   [
-    "coreDir/square"
-    "coreDir/frame"
+    "square"
+    "frame"
   ]
   (require,exports,module)->
-    Square = require("coreDir/square");
-    Frame = require("coreDir/frame");
+    Square = require("square");
+    Frame = require("frame");
     Util =
       rebuildGame: (data)->
         squares = data.Squares
