@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>填字控 Test 1</title>
+    <meta charset="utf-8">
+
+    <!--<script type="text/javascript" src="js/sea.js"></script>-->
+
+</head>
+<body>
+<!--<div class="canvasWrapper">-->
+    <!--<canvas id="firstCanvas"></canvas>-->
+<!--</div>-->
+<div id="svgWrapper"></div>
+<div id="debugWrapper">
+    <input type="text" id="debugInput" placeholder="debugInput">
+    <button onclick="window.debug.printObjInfo({});">打印对象信息</button>
+    <button onclick="saveGameData();">保存游戏信息</button>
+    <button onclick="loadGameData();">读取游戏信息</button>
+    <button onclick="resetGame();">重置游戏</button>
+    <div id="" class="">
+        <input type="text"  id='scaleInput' placeholder="Input the scale">
+        <button onclick="scaleGame(document.getElementById('scaleInput').value, paper);">Scale</button>
+    </div><!-- / -->
+    <div class="output"></div>
+</div>
+<div id="inputWrapper">
+    <input type="text" placeholder="输入文字" id="inputBox">
+</div>
+<style type="text/css">
+    #debugWrapper{float: left;margin-left: 50px; width:350px;}
+    #svgWrapper { margin-left: 100px; float: left;}
+    #svgWrapper svg{border: transparent 1px solid ;}
+    /*#svgWrapper svg:hover{border: #fbb450 1px solid ;}*/
+    #inputWrapper{position:absolute;background: rgb(162, 207, 243); overflow: auto; border-radius: 6px; padding: 4px; display: inline-block; border: 2px rgb(140, 171, 228) solid }
+    #inputBox{width:24px;line-height: 24px; font-size: 20px; padding: 6px;border: none;outline: none;}
+</style>
+</body>
+</html>
