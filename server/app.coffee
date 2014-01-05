@@ -1,9 +1,14 @@
+inspect = require('util').inspect
 path = require 'path'
 mongoose = require 'mongoose'
 mongoStore = require 'connect-mongodb'
 express = require 'express'
+handlebars = require 'express3-handlebars'
+#hbsmodule = require 'express-hbs'
+ejs = require 'ejs'
 app = express()
 
+hbs = handlebars.create()
 PORT = 3939
 app.set 'title', 'Tianzi'
 
@@ -16,8 +21,13 @@ app.configure 'development', ()->
     pretty: true
 
 app.configure ()->
-  #app.set('views', __dirname + '/views')
-  app.set('view engine', 'handlebars')
+  #app.engine('handlebars', hbs.engine ) # handlebars 怎么都不行啊
+  app.engine('hbs', hbs.engine ) # 靠... 原来是要这样使用app.engine  ..
+  #app.set('view engine', 'handlebars')
+  app.set('view engine', 'hbs')
+  #app.engine('html', ejs.renderFile )
+  #app.set('view engine', 'html')
+  app.set('views', __dirname + '/views')
   app.use(express.favicon())
   app.use(express.bodyParser())
   app.use(express.cookieParser())
@@ -40,9 +50,19 @@ app.get '/', (req, res)->
   res.end(body)
 
 # game
-app.get '/game', (req, res)->
-  res.render 'frontend/build/index.html'
+app.get '/game$', (req, res)->
+  #console.log(hbs)
+  #console.log app
+  res.render path.join __dirname, '../frontend/build/index'
+  #app.use express.static path.join( __dirname, '../', 'frontend/build')
+  #res.redirect '/index.html'
   true
+
+# 静态
+#app.use '/game', express.static path.join( __dirname, '../', 'frontend/build')
+
+app.get '/gametest', (req, res)->
+  res.render 'gametest' # wrong ?
 
 app.listen(3939)
 console.log("Listening Tianzi at #{PORT}")

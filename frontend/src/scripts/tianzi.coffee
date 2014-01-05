@@ -20,6 +20,9 @@ seajs.config
 # 全局常量
 window.BOARD_SIZE=
   gridWidth: 20
+  # get angular to work after all the work that have been done above
+  #$("#ng-app").attr("ng-app","")
 
+seajs.use ['tianzi_main'], ()->
+  console.log arguments
 
-seajs.use ['tianzi_main']
