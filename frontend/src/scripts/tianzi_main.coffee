@@ -25,51 +25,6 @@ define([
     #ngTianziMain = angular.module("tianziMain",[])
     #  ngTianziMain.config()
 
-    A = require("angular")
-    _ = zepto = require("zepto")
-    Tianzi = require.async("tianzi_main")
-    
-    #global game settings
-    window.TZ = {}
-    _.extend TZ,
-      squareBox: []
-      frameBox: []
-      inputter: null
-      scale: 1
-
-    window.OPS =
-      text_size: "20px"
-      text_fill: "#B4493A"
-      BOARD_SIZE:
-        width: 600
-        height: 600
-        xGrids: 18
-        yGrids: 18
-        gridWidth: 40
-
-      board_offset: # board offset to svg tag
-        x: 40
-        y: 40
-
-    window.TZ.OPS = OPS
-    window.OPS = OPS
-    window.BOARD_SIZE = OPS.BOARD_SIZE
-    window.CONST = {}
-
-    $(document).ready ->
-      TZ.paper = Raphael("svgWrapper", 800, 600)
-      $("#ng-app").attr "ng-app", "myModule"
-      console.log "ready"
-      
-      #    angular.bootstrap(document.documentElement)
-      TZ.inputWrapper = $("#inputWrapper")
-      TZ.inputter = TZ.inputWrapper.find("input")
-
-    window.TZ.mymodule = angular.module("myModule", [])
-
-    $("body").on "game_ready", null, ->
-
-
     # ------ So Tianzi can start
 
     Basic.prototype.rPaper = TZ.paper

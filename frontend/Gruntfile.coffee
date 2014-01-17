@@ -92,7 +92,7 @@ module.exports = (grunt)->
         #files: ['src/**/*.hbs']
         #tasks: ['newer:handlebars']
       assets:
-        files: ['assets/**/*']
+        files: ['assets/**/*', 'lib/**/*']
         tasks: ['newer:copy']
 
     ## concurrent
@@ -110,11 +110,16 @@ module.exports = (grunt)->
           src: '**/*'
           dest: '<%= dir.build %>/'
         },
+        #{
+          #expand: true
+          #src: 'bower_components/**/*'
+          #dest: '<%= dir.build %>/'
+        #},
         {
           expand: true
-          src: 'bower_components/**/*'
+          src: 'lib/**/*'
           dest: '<%= dir.build %>/'
-        }
+        },
         #,{
           #src: 
         #}

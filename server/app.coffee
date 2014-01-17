@@ -36,12 +36,7 @@ app.configure ()->
   app.use(express.methodOverride())
   app.use(express.static( path.join( __dirname, '../', 'frontend/build')) )
   #console.log path.join( __dirname, '../', 'frontend/build')
-
-  #app.set 'mailOptions',
-    #host: 'localhost',
-    #port: '25',
-    #from: 'nodepad@example.com'
-
+  
 # ------Router ----------
 app.get '/', (req, res)->
   body = 'Hello World'
@@ -58,11 +53,11 @@ app.get '/game$', (req, res)->
   #res.redirect '/index.html'
   true
 
-# 静态
+# 静态 ??
 #app.use '/game', express.static path.join( __dirname, '../', 'frontend/build')
 
-app.get '/gametest', (req, res)->
-  res.render 'gametest' # wrong ?
+#app.get '/gametest', (req, res)->
+  #res.render 'gametest' # wrong ?
 
 app.listen(3939)
 console.log("Listening Tianzi at #{PORT}")

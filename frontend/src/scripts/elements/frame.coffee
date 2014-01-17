@@ -1,6 +1,7 @@
 define (require, exports, module)->
   Basic = require("basic")
   #todo z-index?  should go under the square and texts
+  window.TZ = window.TZ || {}
   class Frame extends Basic
     constructor:(ops)->
       super(ops)
